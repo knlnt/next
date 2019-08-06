@@ -1106,14 +1106,18 @@ module.exports = __webpack_require__(/*! ./dist/pages/_document */ "./node_modul
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/document */ "./node_modules/next/document.js");
 /* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_document__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var styled_jsx_server__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-jsx/server */ "styled-jsx/server");
+/* harmony import */ var styled_jsx_server__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_server__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/styles */ "@material-ui/styles");
+/* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_styles__WEBPACK_IMPORTED_MODULE_6__);
 
 
 var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\pages\\_document.js";
@@ -1121,22 +1125,44 @@ var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\pages\\_docu
 
 
 
+
+
 class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
-  static getInitialProps({
-    renderPage
-  }) {
-    const sheet = new styled_components__WEBPACK_IMPORTED_MODULE_4__["ServerStyleSheet"]();
-    const page = renderPage(App => props => sheet.collectStyles(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(App, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, props, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 8
-      },
-      __self: this
-    }))));
-    const styleTags = sheet.getStyleElement();
-    return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, page, {
-      styleTags
-    });
+  static async getInitialProps(ctx) {
+    const sheet = new styled_components__WEBPACK_IMPORTED_MODULE_5__["ServerStyleSheet"]();
+    const sheets = new _material_ui_styles__WEBPACK_IMPORTED_MODULE_6__["ServerStyleSheets"]();
+    const originalRenderPage = ctx.renderPage;
+
+    try {
+      ctx.renderPage = () => originalRenderPage({
+        enhanceApp: App => props => Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, sheet.collectStyles(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(App, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 16
+          },
+          __self: this
+        }))), sheets.collect(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(App, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 17
+          },
+          __self: this
+        }))))
+      });
+
+      const initialProps = await next_document__WEBPACK_IMPORTED_MODULE_3___default.a.getInitialProps(ctx);
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, initialProps, {
+        styles: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 24
+          },
+          __self: this
+        }, sheets.getStyleElement(), sheet.getStyleElement(), styled_jsx_server__WEBPACK_IMPORTED_MODULE_4___default()() || null)
+      });
+    } finally {
+      sheet.seal();
+    }
   }
 
   render() {
@@ -1144,37 +1170,53 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       lang: "ru",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 16
+        lineNumber: 37
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_3__["Head"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17
+        lineNumber: 38
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("title", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18
+        lineNumber: 39
       },
       __self: this
-    }, "My Page"), this.props.styleTags), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("body", {
+    }, "My Page"), this.props.styleTags, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 41
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/icon?family=Material+Icons",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 45
+      },
+      __self: this
+    })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("body", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 50
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_3__["Main"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 51
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_3__["NextScript"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 52
       },
       __self: this
     })));
@@ -1195,6 +1237,17 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
 
 module.exports = __webpack_require__(/*! private-next-pages/_document.js */"./pages/_document.js");
 
+
+/***/ }),
+
+/***/ "@material-ui/styles":
+/*!**************************************!*\
+  !*** external "@material-ui/styles" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/styles");
 
 /***/ }),
 

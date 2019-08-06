@@ -19,18 +19,6 @@
     "/index": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
-    ],
-    "/next/dist/pages/_error": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/page1": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/page2": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
     ]
   }
 }
