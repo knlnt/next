@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1118,9 +1118,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/styles */ "@material-ui/styles");
 /* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_styles__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _src_theme__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../src/theme */ "./src/theme.js");
 
 
 var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\pages\\_document.js";
+
 
 
 
@@ -1138,13 +1140,13 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
         enhanceApp: App => props => Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, sheet.collectStyles(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(App, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 16
+            lineNumber: 17
           },
           __self: this
         }))), sheets.collect(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(App, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 17
+            lineNumber: 18
           },
           __self: this
         }))))
@@ -1155,7 +1157,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
         styles: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 24
+            lineNumber: 25
           },
           __self: this
         }, sheets.getStyleElement(), sheet.getStyleElement(), styled_jsx_server__WEBPACK_IMPORTED_MODULE_4___default()() || null)
@@ -1170,27 +1172,50 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       lang: "ru",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 37
+        lineNumber: 38
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_3__["Head"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("title", {
-      __source: {
-        fileName: _jsxFileName,
         lineNumber: 39
       },
       __self: this
-    }, "My Page"), this.props.styleTags, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
+      charSet: "utf-8",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
+      name: "viewport",
+      content: "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
+      name: "theme-color",
+      content: _src_theme__WEBPACK_IMPORTED_MODULE_7__["default"].palette.primary.main,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 45
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("title", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 46
+      },
+      __self: this
+    }, "My page"), this.props.styleTags, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
       rel: "stylesheet",
       href: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 48
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
@@ -1198,25 +1223,25 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       href: "https://fonts.googleapis.com/icon?family=Material+Icons",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 52
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("body", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 57
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_3__["Main"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51
+        lineNumber: 58
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_3__["NextScript"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 52
+        lineNumber: 59
       },
       __self: this
     })));
@@ -1228,7 +1253,42 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
 
 /***/ }),
 
-/***/ 0:
+/***/ "./src/theme.js":
+/*!**********************!*\
+  !*** ./src/theme.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_colors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/colors */ "@material-ui/core/colors");
+/* harmony import */ var _material_ui_core_colors__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_colors__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__["createMuiTheme"])({
+  palette: {
+    primary: {
+      main: "#556cd6"
+    },
+    secondary: {
+      main: "#19857b"
+    },
+    error: {
+      main: _material_ui_core_colors__WEBPACK_IMPORTED_MODULE_1__["red"].A400
+    },
+    background: {
+      default: "#e0e0e0"
+    }
+  }
+});
+/* harmony default export */ __webpack_exports__["default"] = (theme);
+
+/***/ }),
+
+/***/ 1:
 /*!*********************************************!*\
   !*** multi private-next-pages/_document.js ***!
   \*********************************************/
@@ -1237,6 +1297,28 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
 
 module.exports = __webpack_require__(/*! private-next-pages/_document.js */"./pages/_document.js");
 
+
+/***/ }),
+
+/***/ "@material-ui/core/colors":
+/*!*******************************************!*\
+  !*** external "@material-ui/core/colors" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/colors");
+
+/***/ }),
+
+/***/ "@material-ui/core/styles":
+/*!*******************************************!*\
+  !*** external "@material-ui/core/styles" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/styles");
 
 /***/ }),
 
