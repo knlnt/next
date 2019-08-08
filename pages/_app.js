@@ -1,10 +1,11 @@
 import React from "react";
 import App, { Container } from "next/app";
+import ThemeProvider from "@material-ui/styles/ThemeProvider";
+import CssBaseline from "@material-ui/core/CssBaseline";
+
 import Header from "../src/components/Header/Header";
 import Navigation from "../src/components/Navigation/Navigation";
 import Main from "../src/components/Main/Main";
-import { ThemeProvider } from "@material-ui/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../src/theme";
 
 class MyApp extends App {
@@ -26,10 +27,10 @@ class MyApp extends App {
       <Container>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Header onClick={this.openNavigation} />
+          <Header onClick={this.handleOpenNavigation} />
           <Navigation
             isOpen={navigationIsOpen}
-            onClick={this.closeNavigation}
+            onClick={this.handleCloseNavigation}
           />
           <Main>
             <Component {...pageProps} />
@@ -38,12 +39,12 @@ class MyApp extends App {
       </Container>
     );
   }
-  openNavigation = () => {
+  handleOpenNavigation = () => {
     this.setState({
       navigationIsOpen: true
     });
   };
-  closeNavigation = () => {
+  handleCloseNavigation = () => {
     this.setState({
       navigationIsOpen: false
     });

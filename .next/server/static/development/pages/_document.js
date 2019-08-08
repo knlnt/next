@@ -1140,13 +1140,13 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
         enhanceApp: App => props => Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, sheet.collectStyles(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(App, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 17
+            lineNumber: 18
           },
           __self: this
         }))), sheets.collect(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(App, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 18
+            lineNumber: 19
           },
           __self: this
         }))))
@@ -1157,7 +1157,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
         styles: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 25
+            lineNumber: 26
           },
           __self: this
         }, sheets.getStyleElement(), sheet.getStyleElement(), styled_jsx_server__WEBPACK_IMPORTED_MODULE_4___default()() || null)
@@ -1172,20 +1172,20 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       lang: "ru",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 39
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_3__["Head"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 40
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
       charSet: "utf-8",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
+        lineNumber: 41
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
@@ -1193,7 +1193,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       content: "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 42
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
@@ -1201,13 +1201,13 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       content: _src_theme__WEBPACK_IMPORTED_MODULE_7__["default"].palette.primary.main,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 46
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("title", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46
+        lineNumber: 47
       },
       __self: this
     }, "My page"), this.props.styleTags, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
@@ -1215,7 +1215,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       href: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 49
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
@@ -1223,25 +1223,25 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       href: "https://fonts.googleapis.com/icon?family=Material+Icons",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 52
+        lineNumber: 53
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("body", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 57
+        lineNumber: 58
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_3__["Main"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 58
+        lineNumber: 59
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_3__["NextScript"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 59
+        lineNumber: 60
       },
       __self: this
     })));

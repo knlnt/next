@@ -1059,13 +1059,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _src_components_Header_Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/components/Header/Header */ "./src/components/Header/Header.js");
-/* harmony import */ var _src_components_Navigation_Navigation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/components/Navigation/Navigation */ "./src/components/Navigation/Navigation.js");
-/* harmony import */ var _src_components_Main_Main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../src/components/Main/Main */ "./src/components/Main/Main.js");
-/* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/styles */ "@material-ui/styles");
-/* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_styles__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/CssBaseline */ "@material-ui/core/CssBaseline");
-/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _material_ui_styles_ThemeProvider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/styles/ThemeProvider */ "@material-ui/styles/ThemeProvider");
+/* harmony import */ var _material_ui_styles_ThemeProvider__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_styles_ThemeProvider__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/CssBaseline */ "@material-ui/core/CssBaseline");
+/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _src_components_Header_Header__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../src/components/Header/Header */ "./src/components/Header/Header.js");
+/* harmony import */ var _src_components_Navigation_Navigation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../src/components/Navigation/Navigation */ "./src/components/Navigation/Navigation.js");
+/* harmony import */ var _src_components_Main_Main__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../src/components/Main/Main */ "./src/components/Main/Main.js");
 /* harmony import */ var _src_theme__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../src/theme */ "./src/theme.js");
 
 
@@ -1087,13 +1087,13 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_3___default.a {
       navigationIsOpen: false
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "openNavigation", () => {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "handleOpenNavigation", () => {
       this.setState({
         navigationIsOpen: true
       });
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "closeNavigation", () => {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "handleCloseNavigation", () => {
       this.setState({
         navigationIsOpen: false
       });
@@ -1119,47 +1119,47 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_3___default.a {
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_3__["Container"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_styles__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
-      theme: _src_theme__WEBPACK_IMPORTED_MODULE_9__["default"],
-      __source: {
-        fileName: _jsxFileName,
         lineNumber: 27
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_styles_ThemeProvider__WEBPACK_IMPORTED_MODULE_4___default.a, {
+      theme: _src_theme__WEBPACK_IMPORTED_MODULE_9__["default"],
       __source: {
         fileName: _jsxFileName,
         lineNumber: 28
       },
       __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components_Header_Header__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      onClick: this.openNavigation,
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_5___default.a, {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 29
       },
       __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components_Navigation_Navigation__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      isOpen: navigationIsOpen,
-      onClick: this.closeNavigation,
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components_Header_Header__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      onClick: this.handleOpenNavigation,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 30
       },
       __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components_Main_Main__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components_Navigation_Navigation__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      isOpen: navigationIsOpen,
+      onClick: this.handleCloseNavigation,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34
+        lineNumber: 31
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components_Main_Main__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 36
       },
       __self: this
     })))));
@@ -1184,18 +1184,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "prop-types");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/AppBar */ "@material-ui/core/AppBar");
-/* harmony import */ var _material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Toolbar */ "@material-ui/core/Toolbar");
-/* harmony import */ var _material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/IconButton */ "@material-ui/core/IconButton");
-/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Icon */ "@material-ui/core/Icon");
-/* harmony import */ var _material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__);
 var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\Header\\Header.js";
-
-
-
 
 
 
@@ -1203,40 +1194,40 @@ var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\compone
 const Header = ({
   onClick
 }) => {
-  const handleClickHeaderButton = () => {
-    onClick();
+  const handleClick = () => {
+    onClick && onClick();
   };
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["AppBar"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Toolbar"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["IconButton"], {
+    onClick: handleClick,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Icon"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 12
-    },
-    __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13
-    },
-    __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    onClick: handleClickHeaderButton,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 14
-    },
-    __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 15
     },
     __self: undefined
   }, "menu"))));
 };
 
 Header.propTypes = {
-  onClick: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func
+  onClick: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (Header);
 
@@ -1268,15 +1259,13 @@ const StyledMain = styled_components__WEBPACK_IMPORTED_MODULE_1___default()(_mat
 
 const Main = ({
   children
-}) => {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledMain, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9
-    },
-    __self: undefined
-  }, children);
-};
+}) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledMain, {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 8
+  },
+  __self: undefined
+}, children);
 
 /* harmony default export */ __webpack_exports__["default"] = (Main);
 
@@ -1297,18 +1286,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/ListItem */ "@material-ui/core/ListItem");
-/* harmony import */ var _material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/ListItemIcon */ "@material-ui/core/ListItemIcon");
-/* harmony import */ var _material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/ListItemText */ "@material-ui/core/ListItemText");
-/* harmony import */ var _material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Icon */ "@material-ui/core/Icon");
-/* harmony import */ var _material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\Navigation\\ListLink.js";
-
-
-
 
 
 
@@ -1316,48 +1296,46 @@ var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\compone
 
 const ListLink = ({
   link
-}) => {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    href: link.link,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10
-    },
-    __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    button: true,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11
-    },
-    __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemIcon__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12
-    },
-    __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_6___default.a, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13
-    },
-    __self: undefined
-  }, link.icon)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_5___default.a, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 15
-    },
-    __self: undefined
-  }, link.name)));
-};
+}) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  href: link.link,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 6
+  },
+  __self: undefined
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["ListItem"], {
+  button: true,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 7
+  },
+  __self: undefined
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["ListItemIcon"], {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 8
+  },
+  __self: undefined
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Icon"], {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 9
+  },
+  __self: undefined
+}, link.icon)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["ListItemText"], {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 11
+  },
+  __self: undefined
+}, link.name)));
 
 ListLink.propTypes = {
   link: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape({
-    name: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
-    link: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
-    icon: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
-  })
+    name: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+    link: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+    icon: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
+  }).isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (ListLink);
 
@@ -1378,13 +1356,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Drawer */ "@material-ui/core/Drawer");
-/* harmony import */ var _material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _material_ui_core_List__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/List */ "@material-ui/core/List");
-/* harmony import */ var _material_ui_core_List__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _ListLink__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ListLink */ "./src/components/Navigation/ListLink.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _ListLink__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ListLink */ "./src/components/Navigation/ListLink.js");
 var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\Navigation\\Navigation.js";
-
 
 
 
@@ -1406,10 +1381,10 @@ const Navigation = ({
   onClick
 }) => {
   const handleCloseDrawer = () => {
-    onClick();
+    onClick && onClick();
   };
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Drawer__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Drawer"], {
     anchor: "left",
     open: isOpen,
     onClick: handleCloseDrawer,
@@ -1425,13 +1400,13 @@ const Navigation = ({
       lineNumber: 22
     },
     __self: undefined
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_4___default.a, {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["List"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 23
     },
     __self: undefined
-  }, links.map(link => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ListLink__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, links.map(link => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ListLink__WEBPACK_IMPORTED_MODULE_4__["default"], {
     link: link,
     key: link.id,
     __source: {
@@ -1443,8 +1418,8 @@ const Navigation = ({
 };
 
 Navigation.propTypes = {
-  isOpen: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
-  onClick: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func
+  isOpen: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool.isRequired,
+  onClick: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (Navigation);
 
@@ -1497,14 +1472,14 @@ module.exports = __webpack_require__(/*! private-next-pages/_app.js */"./pages/_
 
 /***/ }),
 
-/***/ "@material-ui/core/AppBar":
-/*!*******************************************!*\
-  !*** external "@material-ui/core/AppBar" ***!
-  \*******************************************/
+/***/ "@material-ui/core":
+/*!************************************!*\
+  !*** external "@material-ui/core" ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("@material-ui/core/AppBar");
+module.exports = require("@material-ui/core");
 
 /***/ }),
 
@@ -1530,94 +1505,6 @@ module.exports = require("@material-ui/core/CssBaseline");
 
 /***/ }),
 
-/***/ "@material-ui/core/Drawer":
-/*!*******************************************!*\
-  !*** external "@material-ui/core/Drawer" ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/Drawer");
-
-/***/ }),
-
-/***/ "@material-ui/core/Icon":
-/*!*****************************************!*\
-  !*** external "@material-ui/core/Icon" ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/Icon");
-
-/***/ }),
-
-/***/ "@material-ui/core/IconButton":
-/*!***********************************************!*\
-  !*** external "@material-ui/core/IconButton" ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/IconButton");
-
-/***/ }),
-
-/***/ "@material-ui/core/List":
-/*!*****************************************!*\
-  !*** external "@material-ui/core/List" ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/List");
-
-/***/ }),
-
-/***/ "@material-ui/core/ListItem":
-/*!*********************************************!*\
-  !*** external "@material-ui/core/ListItem" ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/ListItem");
-
-/***/ }),
-
-/***/ "@material-ui/core/ListItemIcon":
-/*!*************************************************!*\
-  !*** external "@material-ui/core/ListItemIcon" ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/ListItemIcon");
-
-/***/ }),
-
-/***/ "@material-ui/core/ListItemText":
-/*!*************************************************!*\
-  !*** external "@material-ui/core/ListItemText" ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/ListItemText");
-
-/***/ }),
-
-/***/ "@material-ui/core/Toolbar":
-/*!********************************************!*\
-  !*** external "@material-ui/core/Toolbar" ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/Toolbar");
-
-/***/ }),
-
 /***/ "@material-ui/core/colors":
 /*!*******************************************!*\
   !*** external "@material-ui/core/colors" ***!
@@ -1640,14 +1527,14 @@ module.exports = require("@material-ui/core/styles");
 
 /***/ }),
 
-/***/ "@material-ui/styles":
-/*!**************************************!*\
-  !*** external "@material-ui/styles" ***!
-  \**************************************/
+/***/ "@material-ui/styles/ThemeProvider":
+/*!****************************************************!*\
+  !*** external "@material-ui/styles/ThemeProvider" ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("@material-ui/styles");
+module.exports = require("@material-ui/styles/ThemeProvider");
 
 /***/ }),
 

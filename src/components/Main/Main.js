@@ -5,8 +5,6 @@ const StyledMain = styled(Container)`
   padding-top: 88px;
 `;
 
-const Main = ({ children }) => {
-  return <StyledMain>{children}</StyledMain>;
-};
+const Main = ({ children }) => <StyledMain>{children}</StyledMain>;
 
 export default Main;

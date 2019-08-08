@@ -1,17 +1,14 @@
 import PropTypes from "prop-types";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Icon from "@material-ui/core/Icon";
+import { AppBar, Toolbar, IconButton, Icon } from "@material-ui/core";
 
 const Header = ({ onClick }) => {
-  const handleClickHeaderButton = () => {
-    onClick();
+  const handleClick = () => {
+    onClick && onClick();
   };
   return (
     <AppBar>
       <Toolbar>
-        <IconButton onClick={handleClickHeaderButton}>
+        <IconButton onClick={handleClick}>
           <Icon>menu</Icon>
         </IconButton>
       </Toolbar>
@@ -20,7 +17,7 @@ const Header = ({ onClick }) => {
 };
 
 Header.propTypes = {
-  onClick: PropTypes.func
+  onClick: PropTypes.func.isRequired
 };
 
 export default Header;

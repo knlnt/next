@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
+import { Drawer, List } from "@material-ui/core";
+
 import ListLink from "./ListLink";
 
 const Logo = styled.img`
@@ -15,7 +15,7 @@ const links = [
 
 const Navigation = ({ isOpen, onClick }) => {
   const handleCloseDrawer = () => {
-    onClick();
+    onClick && onClick();
   };
   return (
     <Drawer anchor="left" open={isOpen} onClick={handleCloseDrawer}>
@@ -30,8 +30,8 @@ const Navigation = ({ isOpen, onClick }) => {
 };
 
 Navigation.propTypes = {
-  isOpen: PropTypes.bool,
-  onClick: PropTypes.func
+  isOpen: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 export default Navigation;

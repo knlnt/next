@@ -1,30 +1,30 @@
 import { Component } from "react";
 import axios from "axios";
+import { List, CircularProgress, Paper } from "@material-ui/core";
+
 import RankManager from "../RankManager/RankManager";
 import Player from "./Player";
-import { DEFAULT_ID_HERO } from "../../constants";
-import List from "@material-ui/core/List";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import Paper from "@material-ui/core/Paper";
+import { DEFAULT_ID_HERO, BASE_URL } from "../../constants";
+
+const URL = BASE_URL + "rankings?hero_id=";
 
 class Rankings extends Component {
   state = {
     rankings: [],
-    load: false,
-    error: false,
-    url: "https://api.opendota.com/api/rankings?hero_id="
+    load: true,
+    error: false
   };
 
   componentDidMount() {
-    this.loadPlayers(DEFAULT_ID_HERO);
+    this.handleLoadPlayers(DEFAULT_ID_HERO);
   }
 
   render() {
     const { load, error, rankings } = this.state;
     return (
       <div>
-        <RankManager updateListPlayers={this.loadPlayers} />
-        {!load ? (
+        <RankManager updateListPlayers={this.handleLoadPlayers} />
+        {load ? (
           <CircularProgress />
         ) : error ? (
           <h2>Что-то пошло не так...</h2>
@@ -32,7 +32,7 @@ class Rankings extends Component {
           <Paper>
             <List>
               {rankings.map(item => (
-                <Player rank={item} key={item.account_id} />
+                <Player player={item} key={item.account_id} />
               ))}
             </List>
           </Paper>
@@ -41,29 +41,28 @@ class Rankings extends Component {
     );
   }
 
-  loadPlayers = idCurrentHero => {
-    const { url } = this.state;
+  handleLoadPlayers = idCurrentHero => {
     this.preLoadPlayersList();
     axios
-      .get(url + idCurrentHero)
+      .get(URL + idCurrentHero)
       .then(response => {
-        this.endLoadPlayersList(response);
+        this.handleEndLoadPlayers(response);
       })
       .catch(() => {
-        this.errorLoadPlayersList();
+        this.handleErrorLoadPlayers();
       });
   };
 
-  endLoadPlayersList = response => {
+  handleEndLoadPlayers = response => {
     this.setState({
       rankings: response.data.rankings,
-      load: true
+      load: false
     });
   };
 
-  errorLoadPlayersList = () => {
+  handleErrorLoadPlayers = () => {
     this.setState({
-      load: true,
+      load: false,
       error: true
     });
   };
@@ -71,7 +70,7 @@ class Rankings extends Component {
   preLoadPlayersList = () => {
     this.setState({
       rankings: [],
-      load: false
+      load: true
     });
   };
 }

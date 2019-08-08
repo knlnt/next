@@ -2,12 +2,15 @@ import { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import axios from "axios";
-import { DEFAULT_ID_HERO } from "../../constants";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import Avatar from "@material-ui/core/Avatar";
-import InputLabel from "@material-ui/core/InputLabel";
+import {
+  Select,
+  MenuItem,
+  ListItemIcon,
+  Avatar,
+  InputLabel
+} from "@material-ui/core";
+
+import { DEFAULT_ID_HERO, BASE_URL } from "../../constants";
 
 const StyledSelect = styled(Select)`
   width: 100%;
@@ -15,7 +18,7 @@ const StyledSelect = styled(Select)`
 
 class Heroes extends Component {
   state = {
-    load: false,
+    load: true,
     error: false,
     heroes: [],
     open: false,
@@ -23,7 +26,7 @@ class Heroes extends Component {
   };
 
   componentDidMount() {
-    this.loadHeroesList();
+    this.handleLoadHeroes();
   }
 
   render() {
@@ -42,17 +45,10 @@ class Heroes extends Component {
             id: "selectHero"
           }}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          {!load ? (
-            <MenuItem value="1">
-              <em>Загрузка</em>
-            </MenuItem>
+          {load ? (
+            <MenuItem value="1">Загрузка</MenuItem>
           ) : error ? (
-            <MenuItem value="1">
-              <em>Ошибка</em>
-            </MenuItem>
+            <MenuItem value="1">Ошибка</MenuItem>
           ) : (
             heroes.map(hero => (
               <MenuItem value={hero.id} key={hero.id}>
@@ -71,27 +67,27 @@ class Heroes extends Component {
     );
   }
 
-  loadHeroesList = () => {
+  handleLoadHeroes = () => {
     axios
-      .get("https://api.opendota.com/api/heroStats")
+      .get(BASE_URL + "heroStats")
       .then(response => {
-        this.endLoadHeroesList(response);
+        this.handleEndLoadHeroes(response);
       })
       .catch(() => {
-        this.errorLoadHeroesList();
+        this.handleErrorLoadHeroes();
       });
   };
 
-  endLoadHeroesList = response => {
+  handleEndLoadHeroes = response => {
     this.setState({
       heroes: response.data,
-      load: true
+      load: false
     });
   };
 
-  errorLoadHeroesList = response => {
+  handleErrorLoadHeroes = response => {
     this.setState({
-      load: true,
+      load: false,
       error: true
     });
   };
@@ -117,7 +113,7 @@ class Heroes extends Component {
 }
 
 Heroes.propTypes = {
-  updateListPlayers: PropTypes.func
+  updateListPlayers: PropTypes.func.isRequired
 };
 
 export default Heroes;

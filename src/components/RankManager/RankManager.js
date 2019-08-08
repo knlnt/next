@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import Heroes from "./Heroes";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-import FormControl from "@material-ui/core/FormControl";
+import { Paper, Typography, FormControl } from "@material-ui/core";
 
-const FormManager = styled(Paper)`
+import Heroes from "./Heroes";
+
+const StyledPaper = styled(Paper)`
   margin-bottom: 30px;
   padding: 10px;
 `;
@@ -13,23 +12,21 @@ const StyledFormControl = styled(FormControl)`
   width: 100%;
 `;
 
-const RankManager = ({ updateListPlayers }) => {
-  return (
-    <FormManager>
-      <Typography variant="h5" align="left" component="h5" gutterBottom>
-        Топ игроков по имени героя
-      </Typography>
-      <form autoComplete="off">
-        <StyledFormControl>
-          <Heroes updateListPlayers={updateListPlayers} />
-        </StyledFormControl>
-      </form>
-    </FormManager>
-  );
-};
+const RankManager = ({ updateListPlayers }) => (
+  <StyledPaper>
+    <Typography variant="h5" align="left" component="h5" gutterBottom>
+      Топ игроков по имени героя
+    </Typography>
+    <form autoComplete="off">
+      <StyledFormControl>
+        <Heroes updateListPlayers={updateListPlayers} />
+      </StyledFormControl>
+    </form>
+  </StyledPaper>
+);
 
 RankManager.propTypes = {
-  updateListPlayers: PropTypes.func
+  updateListPlayers: PropTypes.func.isRequired
 };
 
 export default RankManager;
