@@ -1,12 +1,16 @@
 import React from "react";
 import App, { Container } from "next/app";
+import styled from "styled-components";
 import ThemeProvider from "@material-ui/styles/ThemeProvider";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import { CssBaseline, Container as MUIContainer } from "@material-ui/core";
 
 import Header from "../src/components/Header/Header";
 import Navigation from "../src/components/Navigation/Navigation";
-import Main from "../src/components/Main/Main";
 import theme from "../src/theme";
+
+const StyledContainer = styled(MUIContainer)`
+  padding-top: 88px;
+`;
 
 class MyApp extends App {
   state = {
@@ -32,9 +36,9 @@ class MyApp extends App {
             isOpen={navigationIsOpen}
             onClick={this.handleCloseNavigation}
           />
-          <Main>
+          <StyledContainer>
             <Component {...pageProps} />
-          </Main>
+          </StyledContainer>
         </ThemeProvider>
       </Container>
     );

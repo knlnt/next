@@ -26,7 +26,7 @@ class Heroes extends Component {
   };
 
   componentDidMount() {
-    this.handleLoadHeroes();
+    this.loadHeroes();
   }
 
   render() {
@@ -67,7 +67,7 @@ class Heroes extends Component {
     );
   }
 
-  handleLoadHeroes = () => {
+  loadHeroes = () => {
     axios
       .get(BASE_URL + "heroStats")
       .then(response => {

@@ -16,14 +16,14 @@ class Rankings extends Component {
   };
 
   componentDidMount() {
-    this.handleLoadPlayers(DEFAULT_ID_HERO);
+    this.loadPlayers(DEFAULT_ID_HERO);
   }
 
   render() {
     const { load, error, rankings } = this.state;
     return (
       <div>
-        <RankManager updateListPlayers={this.handleLoadPlayers} />
+        <RankManager updateListPlayers={this.loadPlayers} />
         {load ? (
           <CircularProgress />
         ) : error ? (
@@ -31,8 +31,8 @@ class Rankings extends Component {
         ) : (
           <Paper>
             <List>
-              {rankings.map(item => (
-                <Player player={item} key={item.account_id} />
+              {rankings.map(({ account_id, ...props }) => (
+                <Player key={account_id} {...props} />
               ))}
             </List>
           </Paper>
@@ -41,7 +41,7 @@ class Rankings extends Component {
     );
   }
 
-  handleLoadPlayers = idCurrentHero => {
+  loadPlayers = idCurrentHero => {
     this.preLoadPlayersList();
     axios
       .get(URL + idCurrentHero)

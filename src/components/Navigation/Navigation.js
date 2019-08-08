@@ -21,8 +21,8 @@ const Navigation = ({ isOpen, onClick }) => {
     <Drawer anchor="left" open={isOpen} onClick={handleCloseDrawer}>
       <Logo src="http://cdn.dota2.com/apps/dota2/images/nav/logo.png" />
       <List>
-        {links.map(link => (
-          <ListLink link={link} key={link.id} />
+        {links.map(({ id, ...props }) => (
+          <ListLink key={id} {...props} />
         ))}
       </List>
     </Drawer>

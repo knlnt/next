@@ -6,20 +6,18 @@ import {
   Avatar
 } from "@material-ui/core";
 
-const Player = ({ player }) => (
+const Player = ({ avatar, personaname }) => (
   <ListItem button>
     <ListItemAvatar>
-      <Avatar src={player.avatar} />
+      <Avatar src={avatar} />
     </ListItemAvatar>
-    <ListItemText primary={player.personaname} />
+    <ListItemText primary={personaname} />
   </ListItem>
 );
 
 Player.propTypes = {
-  player: PropTypes.shape({
-    avatar: PropTypes.string.isRequired,
-    personaname: PropTypes.string.isRequired
-  }).isRequired
+  avatar: PropTypes.string.isRequired,
+  personaname: PropTypes.string.isRequired
 };
 
 export default Player;
