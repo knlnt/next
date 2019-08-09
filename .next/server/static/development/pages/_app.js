@@ -1169,9 +1169,10 @@ var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\pages\\_app.
 
 
 
-const StyledContainer = styled_components__WEBPACK_IMPORTED_MODULE_4___default()(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__["Container"])`
-  padding-top: 88px;
-`;
+const StyledContainer = styled_components__WEBPACK_IMPORTED_MODULE_4___default()(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__["Container"]).withConfig({
+  displayName: "_app__StyledContainer",
+  componentId: "ctzpp-0"
+})(["padding-top:88px;"]);
 
 class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_3___default.a {
   constructor(...args) {

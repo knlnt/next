@@ -54063,34 +54063,59 @@ var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\compone
 
 
 
+
 var Player = function Player(_ref) {
   var avatar = _ref.avatar,
-      personaname = _ref.personaname;
+      personaname = _ref.personaname,
+      rank_tier = _ref.rank_tier,
+      score = _ref.score;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["ListItem"], {
     button: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 12
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["ListItemAvatar"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 13
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Avatar"], {
     src: avatar,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 14
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["ListItemText"], {
     primary: personaname,
+    secondary: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Typography"], {
+      component: "span",
+      variant: "body2",
+      color: "textPrimary",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20
+      },
+      __self: this
+    }, "\u0423\u0440\u043E\u0432\u0435\u043D\u044C \u0440\u0430\u043D\u0433\u0430 \u2014 ", rank_tier, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22
+      },
+      __self: this
+    })), "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043E\u0447\u043A\u043E\u0432 \u2014 ", score),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 16
     },
     __self: this
   }));
@@ -54098,7 +54123,12 @@ var Player = function Player(_ref) {
 
 Player.propTypes = {
   avatar: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
-  personaname: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
+  personaname: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  rank_tier: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
+  score: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number.isRequired
+};
+Player.defaultProps = {
+  rank_tier: "Не определен"
 };
 /* harmony default export */ __webpack_exports__["default"] = (Player);
 
