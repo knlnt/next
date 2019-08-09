@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import PropTypes from "prop-types";
 import {
   ListItem,
@@ -16,13 +15,13 @@ const Player = ({ avatar, personaname, rank_tier, score }) => (
     <ListItemText
       primary={personaname}
       secondary={
-        <Fragment>
+        <>
           <Typography component="span" variant="body2" color="textPrimary">
             Уровень ранга — {rank_tier}
             <br />
           </Typography>
           Количество очков — {score}
-        </Fragment>
+        </>
       }
     />
   </ListItem>

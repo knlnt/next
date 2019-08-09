@@ -53885,17 +53885,65 @@ function (_Component) {
           heroes = _this$state.heroes,
           load = _this$state.load,
           error = _this$state.error;
+
+      var content = function (load, error, heroes) {
+        if (load) return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["MenuItem"], {
+          value: "1",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 35
+          },
+          __self: this
+        }, "\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430");
+        if (error) return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["MenuItem"], {
+          value: "1",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 36
+          },
+          __self: this
+        }, "\u041E\u0448\u0438\u0431\u043A\u0430");
+        return heroes.map(function (_ref) {
+          var id = _ref.id,
+              localized_name = _ref.localized_name,
+              icon = _ref.icon;
+          return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["MenuItem"], {
+            value: id,
+            key: id,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 38
+            },
+            __self: this
+          }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["ListItemIcon"], {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 39
+            },
+            __self: this
+          }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["Avatar"], {
+            alt: localized_name,
+            src: "https://api.opendota.com" + icon,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 40
+            },
+            __self: this
+          })), localized_name);
+        });
+      }(load, error, heroes);
+
       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 50
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["InputLabel"], {
         htmlFor: "selectHero",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 51
         },
         __self: this
       }, "\u0412\u044B\u0431\u043E\u0440 \u0433\u0435\u0440\u043E\u044F"), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(StyledSelect, {
@@ -53910,48 +53958,10 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 52
         },
         __self: this
-      }, load ? react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["MenuItem"], {
-        value: "1",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 49
-        },
-        __self: this
-      }, "\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430") : error ? react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["MenuItem"], {
-        value: "1",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 51
-        },
-        __self: this
-      }, "\u041E\u0448\u0438\u0431\u043A\u0430") : heroes.map(function (hero) {
-        return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["MenuItem"], {
-          value: hero.id,
-          key: hero.id,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 54
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["ListItemIcon"], {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 55
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["Avatar"], {
-          alt: hero.localized_name,
-          src: "https://api.opendota.com" + hero.icon,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 56
-          },
-          __self: this
-        })), hero.localized_name);
-      })));
+      }, content));
     }
   }]);
 
@@ -54063,7 +54073,6 @@ var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\compone
 
 
 
-
 var Player = function Player(_ref) {
   var avatar = _ref.avatar,
       personaname = _ref.personaname,
@@ -54073,49 +54082,43 @@ var Player = function Player(_ref) {
     button: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 11
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["ListItemAvatar"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 12
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Avatar"], {
     src: avatar,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 13
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["ListItemText"], {
     primary: personaname,
-    secondary: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 19
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Typography"], {
+    secondary: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Typography"], {
       component: "span",
       variant: "body2",
       color: "textPrimary",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 19
       },
       __self: this
     }, "\u0423\u0440\u043E\u0432\u0435\u043D\u044C \u0440\u0430\u043D\u0433\u0430 \u2014 ", rank_tier, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 21
       },
       __self: this
     })), "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043E\u0447\u043A\u043E\u0432 \u2014 ", score),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 15
     },
     __self: this
   }));
@@ -54249,57 +54252,64 @@ function (_Component) {
           load = _this$state.load,
           error = _this$state.error,
           rankings = _this$state.rankings;
+
+      var content = function (load, error, rankings) {
+        if (load) return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["CircularProgress"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 25
+          },
+          __self: this
+        });
+        if (error) return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("h2", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 26
+          },
+          __self: this
+        }, "\u0427\u0442\u043E-\u0442\u043E \u043F\u043E\u0448\u043B\u043E \u043D\u0435 \u0442\u0430\u043A...");
+        return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["Paper"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 28
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["List"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 29
+          },
+          __self: this
+        }, rankings.map(function (_ref) {
+          var account_id = _ref.account_id,
+              props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref, ["account_id"]);
+
+          return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_Player__WEBPACK_IMPORTED_MODULE_13__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+            key: account_id
+          }, props, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 31
+            },
+            __self: this
+          }));
+        })));
+      }(load, error, rankings);
+
       return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 38
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_RankManager_RankManager__WEBPACK_IMPORTED_MODULE_12__["default"], {
         updateListPlayers: this.loadPlayers,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 39
         },
         __self: this
-      }), load ? react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["CircularProgress"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 28
-        },
-        __self: this
-      }) : error ? react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("h2", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 30
-        },
-        __self: this
-      }, "\u0427\u0442\u043E-\u0442\u043E \u043F\u043E\u0448\u043B\u043E \u043D\u0435 \u0442\u0430\u043A...") : react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["Paper"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 32
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["List"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 33
-        },
-        __self: this
-      }, rankings.map(function (_ref) {
-        var account_id = _ref.account_id,
-            props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref, ["account_id"]);
-
-        return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_Player__WEBPACK_IMPORTED_MODULE_13__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-          key: account_id
-        }, props, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 35
-          },
-          __self: this
-        }));
-      }))));
+      }), content);
     }
   }]);
 

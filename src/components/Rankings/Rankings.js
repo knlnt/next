@@ -21,22 +21,23 @@ class Rankings extends Component {
 
   render() {
     const { load, error, rankings } = this.state;
+    const content = ((load, error, rankings) => {
+      if (load) return <CircularProgress />;
+      if (error) return <h2>Что-то пошло не так...</h2>;
+      return (
+        <Paper>
+          <List>
+            {rankings.map(({ account_id, ...props }) => (
+              <Player key={account_id} {...props} />
+            ))}
+          </List>
+        </Paper>
+      );
+    })(load, error, rankings);
     return (
       <div>
         <RankManager updateListPlayers={this.loadPlayers} />
-        {load ? (
-          <CircularProgress />
-        ) : error ? (
-          <h2>Что-то пошло не так...</h2>
-        ) : (
-          <Paper>
-            <List>
-              {rankings.map(({ account_id, ...props }) => (
-                <Player key={account_id} {...props} />
-              ))}
-            </List>
-          </Paper>
-        )}
+        {content}
       </div>
     );
   }

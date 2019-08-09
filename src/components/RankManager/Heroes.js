@@ -31,6 +31,21 @@ class Heroes extends Component {
 
   render() {
     const { open, currentHero, heroes, load, error } = this.state;
+    const content = ((load, error, heroes) => {
+      if (load) return <MenuItem value="1">Загрузка</MenuItem>;
+      if (error) return <MenuItem value="1">Ошибка</MenuItem>;
+      return heroes.map(({ id, localized_name, icon }) => (
+        <MenuItem value={id} key={id}>
+          <ListItemIcon>
+            <Avatar
+              alt={localized_name}
+              src={"https://api.opendota.com" + icon}
+            />
+          </ListItemIcon>
+          {localized_name}
+        </MenuItem>
+      ));
+    })(load, error, heroes);
     return (
       <div>
         <InputLabel htmlFor="selectHero">Выбор героя</InputLabel>
@@ -45,23 +60,7 @@ class Heroes extends Component {
             id: "selectHero"
           }}
         >
-          {load ? (
-            <MenuItem value="1">Загрузка</MenuItem>
-          ) : error ? (
-            <MenuItem value="1">Ошибка</MenuItem>
-          ) : (
-            heroes.map(hero => (
-              <MenuItem value={hero.id} key={hero.id}>
-                <ListItemIcon>
-                  <Avatar
-                    alt={hero.localized_name}
-                    src={"https://api.opendota.com" + hero.icon}
-                  />
-                </ListItemIcon>
-                {hero.localized_name}
-              </MenuItem>
-            ))
-          )}
+          {content}
         </StyledSelect>
       </div>
     );
