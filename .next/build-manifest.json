@@ -19,6 +19,10 @@
     "/index": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
+    ],
+    "/player": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ]
   }
 }

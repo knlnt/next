@@ -28,7 +28,7 @@ class Rankings extends Component {
         <Paper>
           <List>
             {rankings.map(({ account_id, ...props }) => (
-              <Player key={account_id} {...props} />
+              <Player key={account_id} id={account_id} {...props} />
             ))}
           </List>
         </Paper>

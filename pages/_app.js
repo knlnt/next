@@ -1,7 +1,7 @@
 import React from "react";
 import App, { Container } from "next/app";
 import styled from "styled-components";
-import ThemeProvider from "@material-ui/styles/ThemeProvider";
+import { ThemeProvider, StylesProvider } from "@material-ui/styles";
 import { CssBaseline, Container as MUIContainer } from "@material-ui/core";
 
 import Header from "../src/components/Header/Header";
@@ -29,17 +29,19 @@ class MyApp extends App {
 
     return (
       <Container>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Header onClick={this.handleOpenNavigation} />
-          <Navigation
-            isOpen={navigationIsOpen}
-            onClick={this.handleCloseNavigation}
-          />
-          <StyledContainer>
-            <Component {...pageProps} />
-          </StyledContainer>
-        </ThemeProvider>
+        <StylesProvider injectFirst>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Header onClick={this.handleOpenNavigation} />
+            <Navigation
+              isOpen={navigationIsOpen}
+              onClick={this.handleCloseNavigation}
+            />
+            <StyledContainer>
+              <Component {...pageProps} />
+            </StyledContainer>
+          </ThemeProvider>
+        </StylesProvider>
       </Container>
     );
   }
