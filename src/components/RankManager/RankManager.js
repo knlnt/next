@@ -12,21 +12,21 @@ const StyledFormControl = styled(FormControl)`
   width: 100%;
 `;
 
-const RankManager = ({ updateListPlayers }) => (
+const RankManager = ({ updateCurrentHero }) => (
   <StyledPaper>
     <Typography variant="h5" align="left" component="h5" gutterBottom>
       Топ игроков по имени героя
     </Typography>
     <form autoComplete="off">
       <StyledFormControl>
-        <Heroes updateListPlayers={updateListPlayers} />
+        <Heroes updateCurrentHero={updateCurrentHero} />
       </StyledFormControl>
     </form>
   </StyledPaper>
 );
 
 RankManager.propTypes = {
-  updateListPlayers: PropTypes.func.isRequired
+  updateCurrentHero: PropTypes.func.isRequired
 };
 
 export default RankManager;
