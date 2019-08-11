@@ -30,17 +30,6 @@ class Statistics extends Component {
     );
   }
   handleUpdateData = totals => {
-    let arr = KEYS_FOR_CHART.map(item => {
-      return {
-        name: item.name,
-        [item.key]: totals.find(row => {
-          return row.field === item.key;
-        }).sum
-      };
-    });
-
-    console.dir(arr);
-
     this.setState({
       totals: KEYS_FOR_CHART.map(item => {
         return {
