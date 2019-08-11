@@ -17,21 +17,17 @@ const GreyLink = styled(Link)`
 
 class PlayerHeader extends Component {
   state = {
-    players: {
-      profile: {
-        avatarfull: NO_AVATAR_IMAGE,
-        personaname: "Имя",
-        profileurl: "https://steamcommunity.com/"
-      }
-    }
+    avatarfull: NO_AVATAR_IMAGE,
+    personaname: "Имя",
+    profileurl: "https://steamcommunity.com/"
   };
   render() {
-    const { avatarfull, personaname, profileurl } = this.state.players.profile;
+    const { avatarfull, personaname, profileurl } = this.state;
     const { id } = this.props;
     return (
       <DownloadTemplate
         url={BASE_URL + "players/" + id}
-        updateData={this.updateData}
+        onUpdateData={this.handleUpdateData}
       >
         <CardHeader
           avatar={<StyledAvatar src={avatarfull} alt={personaname} />}
@@ -49,9 +45,10 @@ class PlayerHeader extends Component {
       </DownloadTemplate>
     );
   }
-  updateData = newValue => {
+  handleUpdateData = profileInfo => {
+    //const { avatarfull, personaname, profileurl } = profileInfo.profile;
     this.setState({
-      players: newValue
+      ...profileInfo.profile
     });
   };
 }

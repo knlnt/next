@@ -16,7 +16,7 @@ class RecentMatches extends Component {
     return (
       <DownloadTemplate
         url={BASE_URL + "players/" + id + "/recentMatches"}
-        updateData={this.updateData}
+        onUpdateData={this.handleUpdateData}
       >
         <CardContent>
           <Typography variant="h5" align="left" component="h5" gutterBottom>
@@ -31,9 +31,9 @@ class RecentMatches extends Component {
       </DownloadTemplate>
     );
   }
-  updateData = newValue => {
+  handleUpdateData = recentMatches => {
     this.setState({
-      recentMatches: newValue
+      recentMatches
     });
   };
 }

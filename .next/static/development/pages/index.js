@@ -60539,9 +60539,9 @@ function (_Component) {
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "loadData", function () {
       var _this$props = _this.props,
           url = _this$props.url,
-          updateData = _this$props.updateData;
+          onUpdateData = _this$props.onUpdateData;
       axios__WEBPACK_IMPORTED_MODULE_8___default.a.get(url).then(function (response) {
-        updateData(response.data);
+        onUpdateData(response.data);
 
         _this.handleEndLoad();
       })["catch"](function () {
@@ -60606,7 +60606,7 @@ function (_Component) {
 
 DownloadTemplate.propTypes = {
   url: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.string.isRequired,
-  updateData: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.func.isRequired
+  onUpdateData: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.func.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (DownloadTemplate);
 
@@ -60685,10 +60685,10 @@ var Loader = function Loader() {
 
 /***/ }),
 
-/***/ "./src/components/RankManager/Heroes.js":
-/*!**********************************************!*\
-  !*** ./src/components/RankManager/Heroes.js ***!
-  \**********************************************/
+/***/ "./src/components/RankManager/HeroesSelect.js":
+/*!****************************************************!*\
+  !*** ./src/components/RankManager/HeroesSelect.js ***!
+  \****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -60717,7 +60717,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\RankManager\\Heroes.js";
+var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\RankManager\\HeroesSelect.js";
 
 
 
@@ -60726,27 +60726,27 @@ var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\compone
 
 
 var StyledSelect = Object(styled_components__WEBPACK_IMPORTED_MODULE_9__["default"])(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["Select"]).withConfig({
-  displayName: "Heroes__StyledSelect",
-  componentId: "sc-1wyv6v-0"
+  displayName: "HeroesSelect__StyledSelect",
+  componentId: "xcyykb-0"
 })(["width:100%;"]);
 
-var Heroes =
+var HeroesSelect =
 /*#__PURE__*/
 function (_Component) {
-  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(Heroes, _Component);
+  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(HeroesSelect, _Component);
 
-  function Heroes() {
+  function HeroesSelect() {
     var _getPrototypeOf2;
 
     var _this;
 
-    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Heroes);
+    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, HeroesSelect);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(Heroes)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(HeroesSelect)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "state", {
       load: true,
@@ -60803,7 +60803,7 @@ function (_Component) {
     return _this;
   }
 
-  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Heroes, [{
+  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(HeroesSelect, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       this.loadHeroes();
@@ -60897,13 +60897,13 @@ function (_Component) {
     }
   }]);
 
-  return Heroes;
+  return HeroesSelect;
 }(react__WEBPACK_IMPORTED_MODULE_7__["Component"]);
 
-Heroes.propTypes = {
+HeroesSelect.propTypes = {
   updateCurrentHero: prop_types__WEBPACK_IMPORTED_MODULE_8___default.a.func.isRequired
 };
-/* harmony default export */ __webpack_exports__["default"] = (Heroes);
+/* harmony default export */ __webpack_exports__["default"] = (HeroesSelect);
 
 /***/ }),
 
@@ -60922,7 +60922,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
-/* harmony import */ var _Heroes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Heroes */ "./src/components/RankManager/Heroes.js");
+/* harmony import */ var _HeroesSelect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./HeroesSelect */ "./src/components/RankManager/HeroesSelect.js");
 var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\RankManager\\RankManager.js";
 
 
@@ -60969,7 +60969,7 @@ var RankManager = function RankManager(_ref) {
       lineNumber: 21
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Heroes__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HeroesSelect__WEBPACK_IMPORTED_MODULE_4__["default"], {
     updateCurrentHero: updateCurrentHero,
     __source: {
       fileName: _jsxFileName,
@@ -61137,9 +61137,9 @@ function (_Component) {
 
     _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(RankList).call(this, props));
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "updateData", function (newValue) {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "handleUpdateData", function (rankings) {
       _this.setState({
-        rankings: newValue.rankings
+        rankings: rankings.rankings
       });
     });
 
@@ -61158,7 +61158,7 @@ function (_Component) {
           id = _this$state.id;
       return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_DownloadTemplate_DownloadTemplate__WEBPACK_IMPORTED_MODULE_12__["default"], {
         url: _constants__WEBPACK_IMPORTED_MODULE_14__["BASE_URL"] + "rankings?hero_id=" + id,
-        updateData: this.updateData,
+        onUpdateData: this.handleUpdateData,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 20
@@ -61310,7 +61310,7 @@ function (_Component) {
 /*!**************************!*\
   !*** ./src/constants.js ***!
   \**************************/
-/*! exports provided: DEFAULT_ID_HERO, BASE_URL, NO_AVATAR_IMAGE, KEYS_FOR_CHART */
+/*! exports provided: DEFAULT_ID_HERO, BASE_URL, NO_AVATAR_IMAGE, KEYS_FOR_CHART, BAR_CHART_SETTINGS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -61319,6 +61319,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BASE_URL", function() { return BASE_URL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NO_AVATAR_IMAGE", function() { return NO_AVATAR_IMAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KEYS_FOR_CHART", function() { return KEYS_FOR_CHART; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BAR_CHART_SETTINGS", function() { return BAR_CHART_SETTINGS; });
 var DEFAULT_ID_HERO = 1;
 var BASE_URL = "https://api.opendota.com/api/";
 var NO_AVATAR_IMAGE = "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/fe/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb.jpg";
@@ -61338,10 +61339,85 @@ var KEYS_FOR_CHART = [{
   key: "courier_kills",
   name: "Убито курьеров"
 }];
+var BAR_CHART_SETTINGS = {
+  keys: KEYS_FOR_CHART.map(function (item) {
+    return true ? item.key : undefined;
+  }),
+  indexBy: "name",
+  margin: {
+    top: 50,
+    right: 50,
+    bottom: 50,
+    left: 60
+  },
+  padding: 0.3,
+  colors: {
+    scheme: "category10"
+  },
+  defs: [{
+    id: "dots",
+    type: "patternDots",
+    background: "inherit",
+    color: "#38bcb2",
+    size: 4,
+    padding: 1,
+    stagger: true
+  }, {
+    id: "lines",
+    type: "patternLines",
+    background: "inherit",
+    color: "#eed312",
+    rotation: -45,
+    lineWidth: 6,
+    spacing: 10
+  }],
+  fill: [{
+    match: {
+      id: "fries"
+    },
+    id: "dots"
+  }, {
+    match: {
+      id: "sandwich"
+    },
+    id: "lines"
+  }],
+  borderColor: {
+    from: "color",
+    modifiers: [["darker", 1.6]]
+  },
+  axisTop: null,
+  axisRight: null,
+  axisBottom: {
+    tickSize: 5,
+    tickPadding: 5,
+    tickRotation: 0,
+    legend: "Статистика",
+    legendPosition: "middle",
+    legendOffset: 32
+  },
+  axisLeft: {
+    tickSize: 5,
+    tickPadding: 5,
+    tickRotation: 0,
+    legend: "",
+    legendPosition: "middle",
+    legendOffset: -40
+  },
+  labelSkipWidth: 12,
+  labelSkipHeight: 12,
+  labelTextColor: {
+    from: "color",
+    modifiers: [["darker", 1.6]]
+  },
+  animate: true,
+  motionStiffness: 90,
+  motionDamping: 15
+};
 
 /***/ }),
 
-/***/ 2:
+/***/ 0:
 /*!**************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=D%3A%5C%D0%90%D1%81%D1%82%D1%80%D0%B0%D0%BB%5Cnext%5Cpages%5Cindex.js ***!
   \**************************************************************************************************************************************/
@@ -61364,5 +61440,5 @@ module.exports = dll_829b10deddf10e1653a8;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

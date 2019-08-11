@@ -22,27 +22,34 @@ class Statistics extends Component {
       <StyledChart>
         <DownloadTemplate
           url={BASE_URL + "players/" + id + "/totals"}
-          updateData={this.updateData}
+          onUpdateData={this.handleUpdateData}
         >
           <Chart data={totals} />
         </DownloadTemplate>
       </StyledChart>
     );
   }
-  updateData = newValue => {
-    const createObject = (name, secondKey, sum) => {
-      let newObject = {};
-      newObject["name"] = name;
-      newObject[secondKey] = sum;
-      return newObject;
-    };
-    this.setState(prevState => {
-      totals: newValue.forEach(item => {
-        KEYS_FOR_CHART.forEach(row => {
-          if (item.field === row.key)
-            prevState.totals.push(createObject(row.name, row.key, item.sum));
-        });
-      });
+  handleUpdateData = totals => {
+    let arr = KEYS_FOR_CHART.map(item => {
+      return {
+        name: item.name,
+        [item.key]: totals.find(row => {
+          return row.field === item.key;
+        }).sum
+      };
+    });
+
+    console.dir(arr);
+
+    this.setState({
+      totals: KEYS_FOR_CHART.map(item => {
+        return {
+          name: item.name,
+          [item.key]: totals.find(row => {
+            return row.field === item.key;
+          }).sum
+        };
+      })
     });
   };
 }

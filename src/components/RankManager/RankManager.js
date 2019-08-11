@@ -2,7 +2,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Paper, Typography, FormControl } from "@material-ui/core";
 
-import Heroes from "./Heroes";
+import HeroesSelect from "./HeroesSelect";
 
 const StyledPaper = styled(Paper)`
   margin-bottom: 30px;
@@ -19,7 +19,7 @@ const RankManager = ({ updateCurrentHero }) => (
     </Typography>
     <form autoComplete="off">
       <StyledFormControl>
-        <Heroes updateCurrentHero={updateCurrentHero} />
+        <HeroesSelect updateCurrentHero={updateCurrentHero} />
       </StyledFormControl>
     </form>
   </StyledPaper>

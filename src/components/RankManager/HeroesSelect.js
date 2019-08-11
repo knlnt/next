@@ -16,7 +16,7 @@ const StyledSelect = styled(Select)`
   width: 100%;
 `;
 
-class Heroes extends Component {
+class HeroesSelect extends Component {
   state = {
     load: true,
     error: false,
@@ -112,8 +112,8 @@ class Heroes extends Component {
   };
 }
 
-Heroes.propTypes = {
+HeroesSelect.propTypes = {
   updateCurrentHero: PropTypes.func.isRequired
 };
 
-export default Heroes;
+export default HeroesSelect;

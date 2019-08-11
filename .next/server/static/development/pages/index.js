@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -979,10 +979,10 @@ class DownloadTemplate extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "loadData", () => {
       const {
         url,
-        updateData
+        onUpdateData
       } = this.props;
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(url).then(response => {
-        updateData(response.data);
+        onUpdateData(response.data);
         this.handleEndLoad();
       }).catch(() => {
         this.handleErrorLoad();
@@ -1042,7 +1042,7 @@ class DownloadTemplate extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
 
 DownloadTemplate.propTypes = {
   url: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string.isRequired,
-  updateData: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func.isRequired
+  onUpdateData: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (DownloadTemplate);
 
@@ -1119,10 +1119,10 @@ const Loader = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
 
 /***/ }),
 
-/***/ "./src/components/RankManager/Heroes.js":
-/*!**********************************************!*\
-  !*** ./src/components/RankManager/Heroes.js ***!
-  \**********************************************/
+/***/ "./src/components/RankManager/HeroesSelect.js":
+/*!****************************************************!*\
+  !*** ./src/components/RankManager/HeroesSelect.js ***!
+  \****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1141,7 +1141,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
 
-var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\RankManager\\Heroes.js";
+var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\RankManager\\HeroesSelect.js";
 
 
 
@@ -1150,11 +1150,11 @@ var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\compone
 
 
 const StyledSelect = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Select"]).withConfig({
-  displayName: "Heroes__StyledSelect",
-  componentId: "sc-1wyv6v-0"
+  displayName: "HeroesSelect__StyledSelect",
+  componentId: "xcyykb-0"
 })(["width:100%;"]);
 
-class Heroes extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
+class HeroesSelect extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
   constructor(...args) {
     super(...args);
 
@@ -1303,10 +1303,10 @@ class Heroes extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
 
 }
 
-Heroes.propTypes = {
+HeroesSelect.propTypes = {
   updateCurrentHero: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func.isRequired
 };
-/* harmony default export */ __webpack_exports__["default"] = (Heroes);
+/* harmony default export */ __webpack_exports__["default"] = (HeroesSelect);
 
 /***/ }),
 
@@ -1327,7 +1327,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _Heroes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Heroes */ "./src/components/RankManager/Heroes.js");
+/* harmony import */ var _HeroesSelect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./HeroesSelect */ "./src/components/RankManager/HeroesSelect.js");
 var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\RankManager\\RankManager.js";
 
 
@@ -1374,7 +1374,7 @@ const RankManager = ({
     lineNumber: 21
   },
   __self: undefined
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Heroes__WEBPACK_IMPORTED_MODULE_4__["default"], {
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HeroesSelect__WEBPACK_IMPORTED_MODULE_4__["default"], {
   updateCurrentHero: updateCurrentHero,
   __source: {
     fileName: _jsxFileName,
@@ -1522,9 +1522,9 @@ class RankList extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
   constructor(props) {
     super(props);
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])(this, "updateData", newValue => {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])(this, "handleUpdateData", rankings => {
       this.setState({
-        rankings: newValue.rankings
+        rankings: rankings.rankings
       });
     });
 
@@ -1541,7 +1541,7 @@ class RankList extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     } = this.state;
     return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_DownloadTemplate_DownloadTemplate__WEBPACK_IMPORTED_MODULE_6__["default"], {
       url: _constants__WEBPACK_IMPORTED_MODULE_8__["BASE_URL"] + "rankings?hero_id=" + id,
-      updateData: this.updateData,
+      onUpdateData: this.handleUpdateData,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 20
@@ -1663,7 +1663,7 @@ class Rankings extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
 /*!**************************!*\
   !*** ./src/constants.js ***!
   \**************************/
-/*! exports provided: DEFAULT_ID_HERO, BASE_URL, NO_AVATAR_IMAGE, KEYS_FOR_CHART */
+/*! exports provided: DEFAULT_ID_HERO, BASE_URL, NO_AVATAR_IMAGE, KEYS_FOR_CHART, BAR_CHART_SETTINGS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1672,6 +1672,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BASE_URL", function() { return BASE_URL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NO_AVATAR_IMAGE", function() { return NO_AVATAR_IMAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KEYS_FOR_CHART", function() { return KEYS_FOR_CHART; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BAR_CHART_SETTINGS", function() { return BAR_CHART_SETTINGS; });
 const DEFAULT_ID_HERO = 1;
 const BASE_URL = "https://api.opendota.com/api/";
 const NO_AVATAR_IMAGE = "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/fe/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb.jpg";
@@ -1691,10 +1692,85 @@ const KEYS_FOR_CHART = [{
   key: "courier_kills",
   name: "Убито курьеров"
 }];
+const BAR_CHART_SETTINGS = {
+  keys: KEYS_FOR_CHART.map(item => {
+    return true ? item.key : undefined;
+  }),
+  indexBy: "name",
+  margin: {
+    top: 50,
+    right: 50,
+    bottom: 50,
+    left: 60
+  },
+  padding: 0.3,
+  colors: {
+    scheme: "category10"
+  },
+  defs: [{
+    id: "dots",
+    type: "patternDots",
+    background: "inherit",
+    color: "#38bcb2",
+    size: 4,
+    padding: 1,
+    stagger: true
+  }, {
+    id: "lines",
+    type: "patternLines",
+    background: "inherit",
+    color: "#eed312",
+    rotation: -45,
+    lineWidth: 6,
+    spacing: 10
+  }],
+  fill: [{
+    match: {
+      id: "fries"
+    },
+    id: "dots"
+  }, {
+    match: {
+      id: "sandwich"
+    },
+    id: "lines"
+  }],
+  borderColor: {
+    from: "color",
+    modifiers: [["darker", 1.6]]
+  },
+  axisTop: null,
+  axisRight: null,
+  axisBottom: {
+    tickSize: 5,
+    tickPadding: 5,
+    tickRotation: 0,
+    legend: "Статистика",
+    legendPosition: "middle",
+    legendOffset: 32
+  },
+  axisLeft: {
+    tickSize: 5,
+    tickPadding: 5,
+    tickRotation: 0,
+    legend: "",
+    legendPosition: "middle",
+    legendOffset: -40
+  },
+  labelSkipWidth: 12,
+  labelSkipHeight: 12,
+  labelTextColor: {
+    from: "color",
+    modifiers: [["darker", 1.6]]
+  },
+  animate: true,
+  motionStiffness: 90,
+  motionDamping: 15
+};
 
 /***/ }),
 
-/***/ 5:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

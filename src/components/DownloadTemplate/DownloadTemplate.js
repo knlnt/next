@@ -24,11 +24,11 @@ class DownloadTemplate extends Component {
     return content;
   }
   loadData = () => {
-    const { url, updateData } = this.props;
+    const { url, onUpdateData } = this.props;
     axios
       .get(url)
       .then(response => {
-        updateData(response.data);
+        onUpdateData(response.data);
         this.handleEndLoad();
       })
       .catch(() => {
@@ -51,7 +51,7 @@ class DownloadTemplate extends Component {
 
 DownloadTemplate.propTypes = {
   url: PropTypes.string.isRequired,
-  updateData: PropTypes.func.isRequired
+  onUpdateData: PropTypes.func.isRequired
 };
 
 export default DownloadTemplate;

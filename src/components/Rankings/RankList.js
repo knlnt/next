@@ -19,7 +19,7 @@ class RankList extends Component {
     return (
       <DownloadTemplate
         url={BASE_URL + "rankings?hero_id=" + id}
-        updateData={this.updateData}
+        onUpdateData={this.handleUpdateData}
       >
         <Paper>
           <List>
@@ -31,9 +31,9 @@ class RankList extends Component {
       </DownloadTemplate>
     );
   }
-  updateData = newValue => {
+  handleUpdateData = rankings => {
     this.setState({
-      rankings: newValue.rankings
+      rankings: rankings.rankings
     });
   };
 }
