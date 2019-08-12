@@ -58954,7 +58954,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _material_ui_styles_ThemeProvider__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/styles/ThemeProvider */ "./node_modules/@material-ui/styles/esm/ThemeProvider/index.js");
+/* harmony import */ var _material_ui_styles__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
 /* harmony import */ var _src_components_Header_Header__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../src/components/Header/Header */ "./src/components/Header/Header.js");
 /* harmony import */ var _src_components_Navigation_Navigation__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../src/components/Navigation/Navigation */ "./src/components/Navigation/Navigation.js");
@@ -59040,24 +59040,31 @@ function (_App) {
           lineNumber: 31
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_material_ui_styles_ThemeProvider__WEBPACK_IMPORTED_MODULE_11__["default"], {
-        theme: _src_theme__WEBPACK_IMPORTED_MODULE_15__["default"],
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_material_ui_styles__WEBPACK_IMPORTED_MODULE_11__["StylesProvider"], {
+        injectFirst: true,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 32
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__["CssBaseline"], {
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_material_ui_styles__WEBPACK_IMPORTED_MODULE_11__["ThemeProvider"], {
+        theme: _src_theme__WEBPACK_IMPORTED_MODULE_15__["default"],
         __source: {
           fileName: _jsxFileName,
           lineNumber: 33
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_12__["CssBaseline"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 34
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_src_components_Header_Header__WEBPACK_IMPORTED_MODULE_13__["default"], {
         onClick: this.handleOpenNavigation,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 35
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_src_components_Navigation_Navigation__WEBPACK_IMPORTED_MODULE_14__["default"], {
@@ -59065,22 +59072,22 @@ function (_App) {
         onClick: this.handleCloseNavigation,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 36
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(StyledContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 40
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 41
         },
         __self: this
-      })))));
+      }))))));
     }
   }]);
 

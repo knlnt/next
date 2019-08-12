@@ -16,7 +16,7 @@ const StyledSelect = styled(Select)`
   width: 100%;
 `;
 
-class Heroes extends Component {
+class HeroesSelect extends Component {
   state = {
     load: true,
     error: false,
@@ -92,9 +92,10 @@ class Heroes extends Component {
   };
 
   handleChangeSelect = event => {
-    this.props.updateListPlayers(event.target.value);
+    const { value } = event.target;
+    this.props.updateCurrentHero(value);
     this.setState({
-      currentHero: event.target.value
+      currentHero: value
     });
   };
 
@@ -111,8 +112,8 @@ class Heroes extends Component {
   };
 }
 
-Heroes.propTypes = {
-  updateListPlayers: PropTypes.func.isRequired
+HeroesSelect.propTypes = {
+  updateCurrentHero: PropTypes.func.isRequired
 };
 
-export default Heroes;
+export default HeroesSelect;
