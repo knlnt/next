@@ -5,7 +5,7 @@ import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { BASE_URL } from "../../constants";
 
-const DownloadTemplate = (WrappedComponent, selectData) => {
+const withAPIRequest = (WrappedComponent, selectData) => {
   return class extends Component {
     state = {
       load: true,
@@ -17,12 +17,9 @@ const DownloadTemplate = (WrappedComponent, selectData) => {
     }
     render() {
       const { load, error, data } = this.state;
-      const content = (() => {
-        if (load) return <Loader />;
-        if (error) return <ErrorMessage />;
-        return <WrappedComponent data={data} />;
-      })();
-      return content;
+      if (load) return <Loader />;
+      if (error) return <ErrorMessage />;
+      return <WrappedComponent data={data} />;
     }
     loadData = () => {
       const { url } = selectData(this.props);
@@ -56,4 +53,4 @@ const DownloadTemplate = (WrappedComponent, selectData) => {
   };
 };
 
-export default DownloadTemplate;
+export default withAPIRequest;

@@ -1,38 +1,30 @@
-import { Component } from "react";
 import { List, Paper } from "@material-ui/core";
 import PropTypes from "prop-types";
 
-import DownloadTemplate from "../DownloadTemplate/DownloadTemplate";
+import withAPIRequest from "../WithAPIRequest/WithAPIRequest";
 import Player from "./Player";
 
-class RankListTemplate extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      rankings: props.data.rankings
-    };
-  }
-  render() {
-    const { rankings } = this.state;
-    return (
-      <Paper>
-        <List>
-          {rankings &&
-            rankings.map(({ account_id, ...props }) => (
-              <Player key={account_id} id={account_id} {...props} />
-            ))}
-        </List>
-      </Paper>
-    );
-  }
-}
+const RankList = ({ data }) => (
+  <Paper>
+    <List>
+      {data.rankings &&
+        data.rankings.map(({ account_id, ...props }) => (
+          <Player key={account_id} id={account_id} {...props} />
+        ))}
+    </List>
+  </Paper>
+);
 
-const RankList = DownloadTemplate(RankListTemplate, ({ id }) => ({
+const RankListWithAPIRequest = withAPIRequest(RankList, ({ id }) => ({
   url: "rankings?hero_id=" + id
 }));
 
-RankList.propTypes = {
+RankList.defaultProps = {
+  data: PropTypes.array.isRequired
+};
+
+RankListWithAPIRequest.propTypes = {
   id: PropTypes.number.isRequired
 };
 
-export default RankList;
+export default RankListWithAPIRequest;

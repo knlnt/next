@@ -1,7 +1,7 @@
 import { Component } from "react";
 
 import RankManager from "../RankManager/RankManager";
-import RankList from "./RankList";
+import RankListWithAPIRequest from "./RankList";
 import { DEFAULT_ID_HERO } from "../../constants";
 
 class Rankings extends Component {
@@ -13,7 +13,7 @@ class Rankings extends Component {
     return (
       <div>
         <RankManager updateCurrentHero={this.updateCurrentHero} />
-        <RankList key={currentHero} id={currentHero} />
+        <RankListWithAPIRequest key={currentHero} id={currentHero} />
       </div>
     );
   }
