@@ -30,21 +30,16 @@ const Statistics = ({ data }) => {
   );
 };
 
-const StatisticsWithAPIRequest = withAPIRequest(Statistics, ({ id }) => ({
-  url: "players/" + id + "/totals"
-}));
-
 Statistics.defaultProps = {
-  data: PropTypes.array.isRequired
-};
-
-StatisticsWithAPIRequest.propTypes = {
+  data: PropTypes.array.isRequired,
   id: PropTypes.string.isRequired
 };
 
-export default StatisticsWithAPIRequest;
+export default withAPIRequest(Statistics, ({ id }) => ({
+  url: "players/" + id + "/totals"
+}));
 
-// Не обращать внимания
+// Не обращать внимания, это оставлено для себя
 
 // let arr = totals.reduce(
 //   (acc, curr) =>

@@ -33,10 +33,6 @@ const PlayerHeader = ({ data }) => {
   );
 };
 
-const PlayerHeaderWithAPIRequest = withAPIRequest(PlayerHeader, ({ id }) => ({
-  url: "players/" + id
-}));
-
 PlayerHeader.defaultProps = {
   data: {
     profile: {
@@ -44,11 +40,10 @@ PlayerHeader.defaultProps = {
       personaname: "Имя",
       profileurl: "https://steamcommunity.com/"
     }
-  }
-};
-
-PlayerHeaderWithAPIRequest.propTypes = {
+  },
   id: PropTypes.string.isRequired
 };
 
-export default PlayerHeaderWithAPIRequest;
+export default withAPIRequest(PlayerHeader, ({ id }) => ({
+  url: "players/" + id
+}));

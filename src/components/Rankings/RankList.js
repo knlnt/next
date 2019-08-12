@@ -15,16 +15,11 @@ const RankList = ({ data }) => (
   </Paper>
 );
 
-const RankListWithAPIRequest = withAPIRequest(RankList, ({ id }) => ({
+RankList.defaultProps = {
+  data: PropTypes.array.isRequired,
+  id: PropTypes.string.isRequired
+};
+
+export default withAPIRequest(RankList, ({ id }) => ({
   url: "rankings?hero_id=" + id
 }));
-
-RankList.defaultProps = {
-  data: PropTypes.array.isRequired
-};
-
-RankListWithAPIRequest.propTypes = {
-  id: PropTypes.number.isRequired
-};
-
-export default RankListWithAPIRequest;

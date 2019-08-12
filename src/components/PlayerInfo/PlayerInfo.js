@@ -1,15 +1,15 @@
 import PropTypes from "prop-types";
 import { Card } from "@material-ui/core";
 
-import PlayerHeaderWithAPIRequest from "./Header";
-import RecentMatchesWithAPIRequest from "./RecentMatches/RecentMatches";
-import StatisticsWithAPIRequest from "./Statistics/Statistics";
+import PlayerHeader from "./Header";
+import RecentMatches from "./RecentMatches/RecentMatches";
+import Statistics from "./Statistics/Statistics";
 
 const PLayerInfo = ({ id }) => (
   <Card>
-    <PlayerHeaderWithAPIRequest id={id} />
-    <RecentMatchesWithAPIRequest id={id} />
-    <StatisticsWithAPIRequest id={id} />
+    <PlayerHeader id={id} />
+    <RecentMatches id={id} />
+    <Statistics id={id} />
   </Card>
 );
 

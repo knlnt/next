@@ -61001,19 +61001,16 @@ var RankList = function RankList(_ref) {
   })));
 };
 
-var RankListWithAPIRequest = Object(_WithAPIRequest_WithAPIRequest__WEBPACK_IMPORTED_MODULE_5__["default"])(RankList, function (_ref3) {
+RankList.defaultProps = {
+  data: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array.isRequired,
+  id: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(_WithAPIRequest_WithAPIRequest__WEBPACK_IMPORTED_MODULE_5__["default"])(RankList, function (_ref3) {
   var id = _ref3.id;
   return {
     url: "rankings?hero_id=" + id
   };
-});
-RankList.defaultProps = {
-  data: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array.isRequired
-};
-RankListWithAPIRequest.propTypes = {
-  id: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number.isRequired
-};
-/* harmony default export */ __webpack_exports__["default"] = (RankListWithAPIRequest);
+}));
 
 /***/ }),
 
@@ -61157,7 +61154,7 @@ var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\compone
 
 
 
-var withAPIRequest = function withAPIRequest(WrappedComponent, selectData) {
+var withAPIRequest = function withAPIRequest(WrappedComponent, getApiEndpoint) {
   var _temp;
 
   return _temp =
@@ -61185,8 +61182,8 @@ var withAPIRequest = function withAPIRequest(WrappedComponent, selectData) {
       });
 
       Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "loadData", function () {
-        var _selectData = selectData(_this.props),
-            url = _selectData.url;
+        var _getApiEndpoint = getApiEndpoint(_this.props),
+            url = _getApiEndpoint.url;
 
         axios__WEBPACK_IMPORTED_MODULE_8___default.a.get(_constants__WEBPACK_IMPORTED_MODULE_11__["BASE_URL"] + url).then(function (response) {
           _this.onUpdateData(response.data);
@@ -61376,7 +61373,7 @@ var BAR_CHART_SETTINGS = {
 
 /***/ }),
 
-/***/ 0:
+/***/ 2:
 /*!**************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=D%3A%5C%D0%90%D1%81%D1%82%D1%80%D0%B0%D0%BB%5Cnext%5Cpages%5Cindex.js ***!
   \**************************************************************************************************************************************/
@@ -61399,5 +61396,5 @@ module.exports = dll_829b10deddf10e1653a8;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1437,18 +1437,15 @@ const RankList = ({
   }));
 })));
 
-const RankListWithAPIRequest = Object(_WithAPIRequest_WithAPIRequest__WEBPACK_IMPORTED_MODULE_5__["default"])(RankList, ({
+RankList.defaultProps = {
+  data: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array.isRequired,
+  id: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(_WithAPIRequest_WithAPIRequest__WEBPACK_IMPORTED_MODULE_5__["default"])(RankList, ({
   id
 }) => ({
   url: "rankings?hero_id=" + id
-}));
-RankList.defaultProps = {
-  data: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array.isRequired
-};
-RankListWithAPIRequest.propTypes = {
-  id: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number.isRequired
-};
-/* harmony default export */ __webpack_exports__["default"] = (RankListWithAPIRequest);
+})));
 
 /***/ }),
 
@@ -1550,7 +1547,7 @@ var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\compone
 
 
 
-const withAPIRequest = (WrappedComponent, selectData) => {
+const withAPIRequest = (WrappedComponent, getApiEndpoint) => {
   var _temp;
 
   return _temp = class extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
@@ -1566,7 +1563,7 @@ const withAPIRequest = (WrappedComponent, selectData) => {
       Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "loadData", () => {
         const {
           url
-        } = selectData(this.props);
+        } = getApiEndpoint(this.props);
         axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(_constants__WEBPACK_IMPORTED_MODULE_5__["BASE_URL"] + url).then(response => {
           this.onUpdateData(response.data);
           this.handleEndLoad();
@@ -1746,7 +1743,7 @@ const BAR_CHART_SETTINGS = {
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

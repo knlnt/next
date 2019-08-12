@@ -5,7 +5,7 @@ import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { BASE_URL } from "../../constants";
 
-const withAPIRequest = (WrappedComponent, selectData) => {
+const withAPIRequest = (WrappedComponent, getApiEndpoint) => {
   return class extends Component {
     state = {
       load: true,
@@ -22,7 +22,7 @@ const withAPIRequest = (WrappedComponent, selectData) => {
       return <WrappedComponent data={data} />;
     }
     loadData = () => {
-      const { url } = selectData(this.props);
+      const { url } = getApiEndpoint(this.props);
       axios
         .get(BASE_URL + url)
         .then(response => {

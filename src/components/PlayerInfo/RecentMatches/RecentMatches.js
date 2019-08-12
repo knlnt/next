@@ -18,16 +18,11 @@ const RecentMatches = ({ data }) => (
   </CardContent>
 );
 
-const RecentMatchesWithAPIRequest = withAPIRequest(RecentMatches, ({ id }) => ({
-  url: "players/" + id + "/recentMatches"
-}));
-
 RecentMatches.defaultProps = {
-  data: PropTypes.array.isRequired
-};
-
-RecentMatchesWithAPIRequest.propTypes = {
+  data: PropTypes.array.isRequired,
   id: PropTypes.string.isRequired
 };
 
-export default RecentMatchesWithAPIRequest;
+export default withAPIRequest(RecentMatches, ({ id }) => ({
+  url: "players/" + id + "/recentMatches"
+}));
