@@ -4,39 +4,32 @@ import PropTypes from "prop-types";
 
 import DownloadTemplate from "../DownloadTemplate/DownloadTemplate";
 import Player from "./Player";
-import { BASE_URL } from "../../constants";
 
-class RankList extends Component {
+class RankListTemplate extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rankings: [],
-      id: props.id
+      rankings: props.data.rankings
     };
   }
   render() {
-    const { rankings, id } = this.state;
+    const { rankings } = this.state;
     return (
-      <DownloadTemplate
-        url={BASE_URL + "rankings?hero_id=" + id}
-        onUpdateData={this.handleUpdateData}
-      >
-        <Paper>
-          <List>
-            {rankings.map(({ account_id, ...props }) => (
+      <Paper>
+        <List>
+          {rankings &&
+            rankings.map(({ account_id, ...props }) => (
               <Player key={account_id} id={account_id} {...props} />
             ))}
-          </List>
-        </Paper>
-      </DownloadTemplate>
+        </List>
+      </Paper>
     );
   }
-  handleUpdateData = rankings => {
-    this.setState({
-      rankings: rankings.rankings
-    });
-  };
 }
+
+const RankList = DownloadTemplate(RankListTemplate, ({ id }) => ({
+  url: "rankings?hero_id=" + id
+}));
 
 RankList.propTypes = {
   id: PropTypes.number.isRequired
