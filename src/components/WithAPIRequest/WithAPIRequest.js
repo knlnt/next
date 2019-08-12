@@ -26,22 +26,17 @@ const withAPIRequest = (WrappedComponent, getApiEndpoint) => {
       axios
         .get(BASE_URL + url)
         .then(response => {
-          this.onUpdateData(response.data);
-          this.handleEndLoad();
+          this.handleEndLoad(response.data);
         })
         .catch(() => {
           this.handleErrorLoad();
         });
     };
-    onUpdateData = newData => {
-      this.setState({
-        data: newData
-      });
-    };
-    handleEndLoad = () => {
+    handleEndLoad = newData => {
       this.setState({
         load: false,
-        error: false
+        error: false,
+        data: newData
       });
     };
     handleErrorLoad = () => {
