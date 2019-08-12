@@ -46,7 +46,6 @@ class PlayerHeader extends Component {
     );
   }
   handleUpdateData = profileInfo => {
-    //const { avatarfull, personaname, profileurl } = profileInfo.profile;
     this.setState({
       ...profileInfo.profile
     });

@@ -25,9 +25,7 @@ export const KEYS_FOR_CHART = [
   }
 ];
 export const BAR_CHART_SETTINGS = {
-  keys: KEYS_FOR_CHART.map(item => {
-    return true ? item.key : false;
-  }),
+  keys: KEYS_FOR_CHART.map(item => item.key),
   indexBy: "name",
   margin: { top: 50, right: 50, bottom: 50, left: 60 },
   padding: 0.3,

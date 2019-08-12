@@ -1693,9 +1693,7 @@ const KEYS_FOR_CHART = [{
   name: "Убито курьеров"
 }];
 const BAR_CHART_SETTINGS = {
-  keys: KEYS_FOR_CHART.map(item => {
-    return true ? item.key : undefined;
-  }),
+  keys: KEYS_FOR_CHART.map(item => item.key),
   indexBy: "name",
   margin: {
     top: 50,

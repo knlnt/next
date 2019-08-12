@@ -61341,7 +61341,7 @@ var KEYS_FOR_CHART = [{
 }];
 var BAR_CHART_SETTINGS = {
   keys: KEYS_FOR_CHART.map(function (item) {
-    return true ? item.key : undefined;
+    return item.key;
   }),
   indexBy: "name",
   margin: {

@@ -2,7 +2,11 @@ import { Component } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import { BASE_URL, KEYS_FOR_CHART } from "../../../constants";
+import {
+  BASE_URL,
+  KEYS_FOR_CHART,
+  BAR_CHART_SETTINGS
+} from "../../../constants";
 import DownloadTemplate from "../../DownloadTemplate/DownloadTemplate";
 import Chart from "./Chart";
 
@@ -30,6 +34,21 @@ class Statistics extends Component {
     );
   }
   handleUpdateData = totals => {
+    // let arr = totals.reduce(
+    //   (acc, curr) =>
+    //     BAR_CHART_SETTINGS.keys.indexOf(curr.field) !== -1
+    //       ? [
+    //           ...acc,
+    //           {
+    //             name:
+    //               KEYS_FOR_CHART[BAR_CHART_SETTINGS.keys.indexOf(curr.field)]
+    //                 .name,
+    //             [curr.field]: curr.sum
+    //           }
+    //         ]
+    //       : [...acc],
+    //   []
+    // );
     this.setState({
       totals: KEYS_FOR_CHART.map(item => {
         return {
