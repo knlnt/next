@@ -1,45 +1,25 @@
-import { Component } from "react";
 import { List, Paper } from "@material-ui/core";
 import PropTypes from "prop-types";
 
-import DownloadTemplate from "../DownloadTemplate/DownloadTemplate";
+import withAPIRequest from "../WithAPIRequest/WithAPIRequest";
 import Player from "./Player";
-import { BASE_URL } from "../../constants";
 
-class RankList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      rankings: [],
-      id: props.id
-    };
-  }
-  render() {
-    const { rankings, id } = this.state;
-    return (
-      <DownloadTemplate
-        url={BASE_URL + "rankings?hero_id=" + id}
-        onUpdateData={this.handleUpdateData}
-      >
-        <Paper>
-          <List>
-            {rankings.map(({ account_id, ...props }) => (
-              <Player key={account_id} id={account_id} {...props} />
-            ))}
-          </List>
-        </Paper>
-      </DownloadTemplate>
-    );
-  }
-  handleUpdateData = rankings => {
-    this.setState({
-      rankings: rankings.rankings
-    });
-  };
-}
+const RankList = ({ data }) => (
+  <Paper>
+    <List>
+      {data.rankings &&
+        data.rankings.map(({ account_id, ...props }) => (
+          <Player key={account_id} id={account_id} {...props} />
+        ))}
+    </List>
+  </Paper>
+);
 
-RankList.propTypes = {
-  id: PropTypes.number.isRequired
+RankList.defaultProps = {
+  data: PropTypes.array.isRequired,
+  id: PropTypes.string.isRequired
 };
 
-export default RankList;
+export default withAPIRequest(RankList, ({ id }) => ({
+  url: "rankings?hero_id=" + id
+}));

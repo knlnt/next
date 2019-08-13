@@ -60474,144 +60474,6 @@ var App = function App() {
 
 /***/ }),
 
-/***/ "./src/components/DownloadTemplate/DownloadTemplate.js":
-/*!*************************************************************!*\
-  !*** ./src/components/DownloadTemplate/DownloadTemplate.js ***!
-  \*************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _Loader_Loader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Loader/Loader */ "./src/components/Loader/Loader.js");
-/* harmony import */ var _ErrorMessage_ErrorMessage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../ErrorMessage/ErrorMessage */ "./src/components/ErrorMessage/ErrorMessage.js");
-
-
-
-
-
-
-
-var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\DownloadTemplate\\DownloadTemplate.js";
-
-
-
-
-
-
-
-var DownloadTemplate =
-/*#__PURE__*/
-function (_Component) {
-  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(DownloadTemplate, _Component);
-
-  function DownloadTemplate() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, DownloadTemplate);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(DownloadTemplate)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "state", {
-      load: true,
-      error: false
-    });
-
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "loadData", function () {
-      var _this$props = _this.props,
-          url = _this$props.url,
-          onUpdateData = _this$props.onUpdateData;
-      axios__WEBPACK_IMPORTED_MODULE_8___default.a.get(url).then(function (response) {
-        onUpdateData(response.data);
-
-        _this.handleEndLoad();
-      })["catch"](function () {
-        _this.handleErrorLoad();
-      });
-    });
-
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleEndLoad", function () {
-      _this.setState({
-        load: false,
-        error: false
-      });
-    });
-
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleErrorLoad", function () {
-      _this.setState({
-        load: false,
-        error: true
-      });
-    });
-
-    return _this;
-  }
-
-  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(DownloadTemplate, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.loadData();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var children = this.props.children;
-      var _this$state = this.state,
-          load = _this$state.load,
-          error = _this$state.error;
-
-      var content = function () {
-        if (load) return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Loader_Loader__WEBPACK_IMPORTED_MODULE_10__["default"], {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 20
-          },
-          __self: this
-        });
-        if (error) return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_ErrorMessage_ErrorMessage__WEBPACK_IMPORTED_MODULE_11__["default"], {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 21
-          },
-          __self: this
-        });
-        return children;
-      }();
-
-      return content;
-    }
-  }]);
-
-  return DownloadTemplate;
-}(react__WEBPACK_IMPORTED_MODULE_7__["Component"]);
-
-DownloadTemplate.propTypes = {
-  url: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.string.isRequired,
-  onUpdateData: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.func.isRequired
-};
-/* harmony default export */ __webpack_exports__["default"] = (DownloadTemplate);
-
-/***/ }),
-
 /***/ "./src/components/ErrorMessage/ErrorMessage.js":
 /*!*****************************************************!*\
   !*** ./src/components/ErrorMessage/ErrorMessage.js ***!
@@ -60685,6 +60547,223 @@ var Loader = function Loader() {
 
 /***/ }),
 
+/***/ "./src/components/RankManager/HeroItem.js":
+/*!************************************************!*\
+  !*** ./src/components/RankManager/HeroItem.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\RankManager\\HeroItem.js";
+
+
+
+
+var HeroItem = function HeroItem(_ref) {
+  var name = _ref.name,
+      icon = _ref.icon,
+      roles = _ref.roles;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["ListItemAvatar"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Avatar"], {
+    alt: name,
+    src: "https://api.opendota.com" + icon,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["ListItemText"], {
+    primary: name,
+    secondary: roles[0],
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }));
+};
+
+HeroItem.propTypes = {
+  name: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  icon: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  roles: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.array.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (HeroItem);
+
+/***/ }),
+
+/***/ "./src/components/RankManager/HeroesList.js":
+/*!**************************************************!*\
+  !*** ./src/components/RankManager/HeroesList.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
+/* harmony import */ var _HeroItem__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./HeroItem */ "./src/components/RankManager/HeroItem.js");
+
+
+
+
+
+
+
+var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\RankManager\\HeroesList.js";
+
+
+
+
+
+
+
+var StyledSelect = Object(styled_components__WEBPACK_IMPORTED_MODULE_9__["default"])(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__["Select"]).withConfig({
+  displayName: "HeroesList__StyledSelect",
+  componentId: "vw2ynt-0"
+})(["width:100%;"]);
+
+var HeroesList =
+/*#__PURE__*/
+function (_Component) {
+  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(HeroesList, _Component);
+
+  function HeroesList(props) {
+    var _this;
+
+    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, HeroesList);
+
+    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(HeroesList).call(this, props));
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleChangeSelect", function (event) {
+      var value = event.target.value;
+      var updateCurrentHero = _this.props.updateCurrentHero;
+
+      _this.setState({
+        currentHero: value
+      });
+
+      updateCurrentHero(value);
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleCloseList", function () {
+      _this.setState({
+        open: false
+      });
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleOpenList", function () {
+      _this.setState({
+        open: true
+      });
+    });
+
+    _this.state = {
+      currentHero: _constants__WEBPACK_IMPORTED_MODULE_11__["DEFAULT_ID_HERO"],
+      open: false,
+      heroes: props.heroes
+    };
+    return _this;
+  }
+
+  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(HeroesList, [{
+    key: "render",
+    value: function render() {
+      var _this$state = this.state,
+          open = _this$state.open,
+          currentHero = _this$state.currentHero,
+          heroes = _this$state.heroes;
+      return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__["InputLabel"], {
+        htmlFor: "selectHero",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27
+        },
+        __self: this
+      }, "\u0412\u044B\u0431\u043E\u0440 \u0433\u0435\u0440\u043E\u044F"), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(StyledSelect, {
+        open: open,
+        onClose: this.handleCloseList,
+        onOpen: this.handleOpenList,
+        value: currentHero,
+        onChange: this.handleChangeSelect,
+        inputProps: {
+          name: "currentHero",
+          id: "selectHero"
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28
+        },
+        __self: this
+      }, heroes.map(function (_ref) {
+        var id = _ref.id,
+            localized_name = _ref.localized_name,
+            icon = _ref.icon,
+            roles = _ref.roles;
+        return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__["MenuItem"], {
+          value: id,
+          key: id,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 40
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_HeroItem__WEBPACK_IMPORTED_MODULE_12__["default"], {
+          name: localized_name,
+          icon: icon,
+          roles: roles,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 41
+          },
+          __self: this
+        }));
+      })));
+    }
+  }]);
+
+  return HeroesList;
+}(react__WEBPACK_IMPORTED_MODULE_7__["Component"]);
+
+HeroesList.propTypes = {
+  updateCurrentHero: prop_types__WEBPACK_IMPORTED_MODULE_8___default.a.func.isRequired,
+  heroes: prop_types__WEBPACK_IMPORTED_MODULE_8___default.a.array.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (HeroesList);
+
+/***/ }),
+
 /***/ "./src/components/RankManager/HeroesSelect.js":
 /*!****************************************************!*\
   !*** ./src/components/RankManager/HeroesSelect.js ***!
@@ -60705,11 +60784,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
+/* harmony import */ var _Sorted__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Sorted */ "./src/components/RankManager/Sorted.js");
+/* harmony import */ var _HeroesList__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./HeroesList */ "./src/components/RankManager/HeroesList.js");
+/* harmony import */ var _WithAPIRequest_WithAPIRequest__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../WithAPIRequest/WithAPIRequest */ "./src/components/WithAPIRequest/WithAPIRequest.js");
 
 
 
@@ -60725,175 +60802,82 @@ var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\compone
 
 
 
-var StyledSelect = Object(styled_components__WEBPACK_IMPORTED_MODULE_9__["default"])(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["Select"]).withConfig({
-  displayName: "HeroesSelect__StyledSelect",
-  componentId: "xcyykb-0"
-})(["width:100%;"]);
-
 var HeroesSelect =
 /*#__PURE__*/
 function (_Component) {
   Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(HeroesSelect, _Component);
 
-  function HeroesSelect() {
-    var _getPrototypeOf2;
-
+  function HeroesSelect(props) {
     var _this;
 
     Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, HeroesSelect);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(HeroesSelect).call(this, props));
 
-    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(HeroesSelect)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "sortedHeroesList", function () {
+      var sorted = _this.state.sorted;
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "state", {
-      load: true,
-      error: false,
-      heroes: [],
-      open: false,
-      currentHero: _constants__WEBPACK_IMPORTED_MODULE_12__["DEFAULT_ID_HERO"]
-    });
-
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "loadHeroes", function () {
-      axios__WEBPACK_IMPORTED_MODULE_10___default.a.get(_constants__WEBPACK_IMPORTED_MODULE_12__["BASE_URL"] + "heroStats").then(function (response) {
-        _this.handleEndLoadHeroes(response);
-      })["catch"](function () {
-        _this.handleErrorLoadHeroes();
+      _this.setState(function (prevState) {
+        return {
+          heroes: prevState.heroes.sort(function (first, second) {
+            return sorted ? first.localized_name.toLowerCase() > second.localized_name.toLowerCase() ? 1 : -1 : first.roles[0].toLowerCase() > second.roles[0].toLowerCase() ? 1 : -1;
+          })
+        };
       });
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleEndLoadHeroes", function (response) {
-      _this.setState({
-        heroes: response.data,
-        load: false
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "toggleSorted", function () {
+      _this.setState(function (prevState) {
+        return {
+          sorted: !prevState.sorted
+        };
+      }, function () {
+        _this.sortedHeroesList();
       });
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleErrorLoadHeroes", function (response) {
-      _this.setState({
-        load: false,
-        error: true
-      });
-    });
-
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleChangeSelect", function (event) {
-      var value = event.target.value;
-
-      _this.props.updateCurrentHero(value);
-
-      _this.setState({
-        currentHero: value
-      });
-    });
-
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleCloseList", function () {
-      _this.setState({
-        open: false
-      });
-    });
-
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleOpenList", function () {
-      _this.setState({
-        open: true
-      });
-    });
-
+    _this.state = {
+      heroes: props.data,
+      sorted: true
+    };
     return _this;
   }
 
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(HeroesSelect, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.loadHeroes();
+      this.sortedHeroesList();
     }
   }, {
     key: "render",
     value: function render() {
       var _this$state = this.state,
-          open = _this$state.open,
-          currentHero = _this$state.currentHero,
-          heroes = _this$state.heroes,
-          load = _this$state.load,
-          error = _this$state.error;
-
-      var content = function (load, error, heroes) {
-        if (load) return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["MenuItem"], {
-          value: "1",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 35
-          },
-          __self: this
-        }, "\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430");
-        if (error) return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["MenuItem"], {
-          value: "1",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 36
-          },
-          __self: this
-        }, "\u041E\u0448\u0438\u0431\u043A\u0430");
-        return heroes.map(function (_ref) {
-          var id = _ref.id,
-              localized_name = _ref.localized_name,
-              icon = _ref.icon;
-          return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["MenuItem"], {
-            value: id,
-            key: id,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 38
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["ListItemIcon"], {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 39
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["Avatar"], {
-            alt: localized_name,
-            src: "https://api.opendota.com" + icon,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 40
-            },
-            __self: this
-          })), localized_name);
-        });
-      }(load, error, heroes);
-
+          sorted = _this$state.sorted,
+          heroes = _this$state.heroes;
+      var updateCurrentHero = this.props.updateCurrentHero;
       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 50
+          lineNumber: 25
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["InputLabel"], {
-        htmlFor: "selectHero",
+      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Sorted__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        sorted: sorted,
+        onChange: this.toggleSorted,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 26
         },
         __self: this
-      }, "\u0412\u044B\u0431\u043E\u0440 \u0433\u0435\u0440\u043E\u044F"), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(StyledSelect, {
-        open: open,
-        onClose: this.handleCloseList,
-        onOpen: this.handleOpenList,
-        value: currentHero,
-        onChange: this.handleChangeSelect,
-        inputProps: {
-          name: "currentHero",
-          id: "selectHero"
-        },
+      }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_HeroesList__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        updateCurrentHero: updateCurrentHero,
+        heroes: heroes,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 27
         },
         __self: this
-      }, content));
+      }));
     }
   }]);
 
@@ -60903,7 +60887,11 @@ function (_Component) {
 HeroesSelect.propTypes = {
   updateCurrentHero: prop_types__WEBPACK_IMPORTED_MODULE_8___default.a.func.isRequired
 };
-/* harmony default export */ __webpack_exports__["default"] = (HeroesSelect);
+/* harmony default export */ __webpack_exports__["default"] = (Object(_WithAPIRequest_WithAPIRequest__WEBPACK_IMPORTED_MODULE_11__["default"])(HeroesSelect, function () {
+  return {
+    url: "heroStats"
+  };
+}));
 
 /***/ }),
 
@@ -60933,17 +60921,13 @@ var StyledPaper = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default
   displayName: "RankManager__StyledPaper",
   componentId: "gg46rw-0"
 })(["margin-bottom:30px;padding:10px;"]);
-var StyledFormControl = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["FormControl"]).withConfig({
-  displayName: "RankManager__StyledFormControl",
-  componentId: "gg46rw-1"
-})(["width:100%;"]);
 
 var RankManager = function RankManager(_ref) {
   var updateCurrentHero = _ref.updateCurrentHero;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPaper, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 13
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
@@ -60953,36 +60937,80 @@ var RankManager = function RankManager(_ref) {
     gutterBottom: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 14
     },
     __self: this
-  }, "\u0422\u043E\u043F \u0438\u0433\u0440\u043E\u043A\u043E\u0432 \u043F\u043E \u0438\u043C\u0435\u043D\u0438 \u0433\u0435\u0440\u043E\u044F"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    autoComplete: "off",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 20
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledFormControl, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HeroesSelect__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, "\u0422\u043E\u043F \u0438\u0433\u0440\u043E\u043A\u043E\u0432 \u043F\u043E \u0438\u043C\u0435\u043D\u0438 \u0433\u0435\u0440\u043E\u044F"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HeroesSelect__WEBPACK_IMPORTED_MODULE_4__["default"], {
     updateCurrentHero: updateCurrentHero,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 17
     },
     __self: this
-  }))));
+  }));
 };
 
 RankManager.propTypes = {
   updateCurrentHero: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (RankManager);
+
+/***/ }),
+
+/***/ "./src/components/RankManager/Sorted.js":
+/*!**********************************************!*\
+  !*** ./src/components/RankManager/Sorted.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\RankManager\\Sorted.js";
+
+
+
+
+var Sorted = function Sorted(_ref) {
+  var sorted = _ref.sorted,
+      onChange = _ref.onChange;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Typography"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5
+    },
+    __self: this
+  }, "\u0421\u043E\u0442\u0440\u0438\u0440\u043E\u0432\u043A\u0430 \u043F\u043E", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["FormControlLabel"], {
+    value: "sorted",
+    onChange: onChange,
+    control: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Switch"], {
+      color: "default",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10
+      },
+      __self: this
+    }),
+    label: sorted ? "имени" : "типу",
+    labelPlacement: "start",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  }));
+};
+
+Sorted.propTypes = {
+  sorted: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool.isRequired,
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Sorted);
 
 /***/ }),
 
@@ -61092,28 +61120,13 @@ Player.defaultProps = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectWithoutProperties.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _DownloadTemplate_DownloadTemplate__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../DownloadTemplate/DownloadTemplate */ "./src/components/DownloadTemplate/DownloadTemplate.js");
-/* harmony import */ var _Player__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Player */ "./src/components/Rankings/Player.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
-
-
-
-
-
-
-
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _WithAPIRequest_WithAPIRequest__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../WithAPIRequest/WithAPIRequest */ "./src/components/WithAPIRequest/WithAPIRequest.js");
+/* harmony import */ var _Player__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Player */ "./src/components/Rankings/Player.js");
 
 
 var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\Rankings\\RankList.js";
@@ -61123,84 +61136,47 @@ var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\compone
 
 
 
+var RankList = function RankList(_ref) {
+  var data = _ref.data;
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Paper"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["List"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }, data.rankings && data.rankings.map(function (_ref2) {
+    var account_id = _ref2.account_id,
+        props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref2, ["account_id"]);
 
-
-var RankList =
-/*#__PURE__*/
-function (_Component) {
-  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__["default"])(RankList, _Component);
-
-  function RankList(props) {
-    var _this;
-
-    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(this, RankList);
-
-    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(RankList).call(this, props));
-
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "handleUpdateData", function (rankings) {
-      _this.setState({
-        rankings: rankings.rankings
-      });
-    });
-
-    _this.state = {
-      rankings: [],
-      id: props.id
-    };
-    return _this;
-  }
-
-  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__["default"])(RankList, [{
-    key: "render",
-    value: function render() {
-      var _this$state = this.state,
-          rankings = _this$state.rankings,
-          id = _this$state.id;
-      return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_DownloadTemplate_DownloadTemplate__WEBPACK_IMPORTED_MODULE_12__["default"], {
-        url: _constants__WEBPACK_IMPORTED_MODULE_14__["BASE_URL"] + "rankings?hero_id=" + id,
-        onUpdateData: this.handleUpdateData,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 20
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__["Paper"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 24
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__["List"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 25
-        },
-        __self: this
-      }, rankings.map(function (_ref) {
-        var account_id = _ref.account_id,
-            props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref, ["account_id"]);
-
-        return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_Player__WEBPACK_IMPORTED_MODULE_13__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-          key: account_id,
-          id: account_id
-        }, props, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 27
-          },
-          __self: this
-        }));
-      }))));
-    }
-  }]);
-
-  return RankList;
-}(react__WEBPACK_IMPORTED_MODULE_9__["Component"]);
-
-RankList.propTypes = {
-  id: prop_types__WEBPACK_IMPORTED_MODULE_11___default.a.number.isRequired
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_Player__WEBPACK_IMPORTED_MODULE_6__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      key: account_id,
+      id: account_id
+    }, props, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12
+      },
+      __self: this
+    }));
+  })));
 };
-/* harmony default export */ __webpack_exports__["default"] = (RankList);
+
+RankList.defaultProps = {
+  data: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array.isRequired,
+  id: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(_WithAPIRequest_WithAPIRequest__WEBPACK_IMPORTED_MODULE_5__["default"])(RankList, function (_ref3) {
+  var id = _ref3.id;
+  return {
+    url: "rankings?hero_id=" + id
+  };
+}));
 
 /***/ }),
 
@@ -61303,6 +61279,156 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_7__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Rankings);
+
+/***/ }),
+
+/***/ "./src/components/WithAPIRequest/WithAPIRequest.js":
+/*!*********************************************************!*\
+  !*** ./src/components/WithAPIRequest/WithAPIRequest.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+/* harmony import */ var _Loader_Loader__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Loader/Loader */ "./src/components/Loader/Loader.js");
+/* harmony import */ var _ErrorMessage_ErrorMessage__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../ErrorMessage/ErrorMessage */ "./src/components/ErrorMessage/ErrorMessage.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
+
+
+
+
+
+
+
+
+var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\WithAPIRequest\\WithAPIRequest.js";
+
+
+
+
+
+
+
+
+
+var withAPIRequest = function withAPIRequest(WrappedComponent, getApiEndpoint) {
+  var _temp;
+
+  return _temp =
+  /*#__PURE__*/
+  function (_Component) {
+    Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_6__["default"])(_temp, _Component);
+
+    function _temp() {
+      var _getPrototypeOf2;
+
+      var _this;
+
+      Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, _temp);
+
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(_temp)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+      Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "state", {
+        load: true,
+        error: false,
+        data: []
+      });
+
+      Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "loadData", function () {
+        var _getApiEndpoint = getApiEndpoint(_this.props),
+            url = _getApiEndpoint.url;
+
+        axios__WEBPACK_IMPORTED_MODULE_10___default.a.get(_constants__WEBPACK_IMPORTED_MODULE_14__["BASE_URL"] + url).then(function (response) {
+          _this.handleEndLoad(response.data);
+        })["catch"](function () {
+          _this.handleErrorLoad();
+        });
+      });
+
+      Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "handleEndLoad", function (newData) {
+        _this.setState({
+          load: false,
+          error: false,
+          data: newData
+        });
+      });
+
+      Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "handleErrorLoad", function () {
+        _this.setState({
+          load: false,
+          error: true
+        });
+      });
+
+      return _this;
+    }
+
+    Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(_temp, [{
+      key: "componentDidMount",
+      value: function componentDidMount() {
+        this.loadData();
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        var _this$state = this.state,
+            load = _this$state.load,
+            error = _this$state.error,
+            data = _this$state.data;
+        if (load) return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_Loader_Loader__WEBPACK_IMPORTED_MODULE_12__["default"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 22
+          },
+          __self: this
+        });
+        if (error) return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_ErrorMessage_ErrorMessage__WEBPACK_IMPORTED_MODULE_13__["default"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 23
+          },
+          __self: this
+        });
+        return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(WrappedComponent, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+          data: data
+        }, this.props, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 24
+          },
+          __self: this
+        }));
+      }
+    }]);
+
+    return _temp;
+  }(react__WEBPACK_IMPORTED_MODULE_8__["Component"]), _temp;
+};
+
+withAPIRequest.propTypes = {
+  url: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.string.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (withAPIRequest);
 
 /***/ }),
 
