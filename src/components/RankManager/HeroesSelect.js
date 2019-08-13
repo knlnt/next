@@ -1,7 +1,7 @@
 import { Component } from "react";
 import PropTypes from "prop-types";
 
-import Sorted from "./Sorted";
+import SortSelection from "./SortSelection";
 import HeroesList from "./HeroesList";
 import withAPIRequest from "../WithAPIRequest/WithAPIRequest";
 
@@ -10,29 +10,29 @@ class HeroesSelect extends Component {
     super(props);
     this.state = {
       heroes: props.data,
-      sorted: true
+      sortByName: true
     };
   }
 
   componentDidMount() {
-    this.sortedHeroesList();
+    this.sortHeroesList();
   }
 
   render() {
-    const { sorted, heroes } = this.state;
+    const { sortByName, heroes } = this.state;
     const { updateCurrentHero } = this.props;
     return (
       <div>
-        <Sorted sorted={sorted} onChange={this.toggleSorted} />
+        <SortSelection sortByName={sortByName} onChange={this.toggleSortType} />
         <HeroesList updateCurrentHero={updateCurrentHero} heroes={heroes} />
       </div>
     );
   }
-  sortedHeroesList = () => {
-    const { sorted } = this.state;
+  sortHeroesList = () => {
+    const { sortByName } = this.state;
     this.setState(prevState => ({
       heroes: prevState.heroes.sort((first, second) => {
-        return sorted
+        return sortByName
           ? first.localized_name.toLowerCase() >
             second.localized_name.toLowerCase()
             ? 1
@@ -43,20 +43,21 @@ class HeroesSelect extends Component {
       })
     }));
   };
-  toggleSorted = () => {
+  toggleSortType = () => {
     this.setState(
       prevState => ({
-        sorted: !prevState.sorted
+        sortByName: !prevState.sortByName
       }),
       () => {
-        this.sortedHeroesList();
+        this.sortHeroesList();
       }
     );
   };
 }
 
 HeroesSelect.propTypes = {
-  updateCurrentHero: PropTypes.func.isRequired
+  updateCurrentHero: PropTypes.func.isRequired,
+  data: PropTypes.array.isRequired
 };
 
 export default withAPIRequest(HeroesSelect, () => ({
