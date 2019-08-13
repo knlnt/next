@@ -1,5 +1,7 @@
 import { Component } from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
+import { MenuItem } from "@material-ui/core";
 
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
@@ -19,7 +21,7 @@ const withAPIRequest = (WrappedComponent, getApiEndpoint) => {
       const { load, error, data } = this.state;
       if (load) return <Loader />;
       if (error) return <ErrorMessage />;
-      return <WrappedComponent data={data} />;
+      return <WrappedComponent data={data} {...this.props} />;
     }
     loadData = () => {
       const { url } = getApiEndpoint(this.props);
@@ -46,6 +48,10 @@ const withAPIRequest = (WrappedComponent, getApiEndpoint) => {
       });
     };
   };
+};
+
+withAPIRequest.propTypes = {
+  url: PropTypes.string.isRequired
 };
 
 export default withAPIRequest;

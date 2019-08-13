@@ -1,114 +1,57 @@
 import { Component } from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
-import axios from "axios";
-import {
-  Select,
-  MenuItem,
-  ListItemIcon,
-  Avatar,
-  InputLabel
-} from "@material-ui/core";
 
-import { DEFAULT_ID_HERO, BASE_URL } from "../../constants";
-
-const StyledSelect = styled(Select)`
-  width: 100%;
-`;
+import Sorted from "./Sorted";
+import HeroesList from "./HeroesList";
+import withAPIRequest from "../WithAPIRequest/WithAPIRequest";
 
 class HeroesSelect extends Component {
-  state = {
-    load: true,
-    error: false,
-    heroes: [],
-    open: false,
-    currentHero: DEFAULT_ID_HERO
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      heroes: props.data,
+      sorted: true
+    };
+  }
 
   componentDidMount() {
-    this.loadHeroes();
+    this.sortedHeroesList();
   }
 
   render() {
-    const { open, currentHero, heroes, load, error } = this.state;
-    const content = ((load, error, heroes) => {
-      if (load) return <MenuItem value="1">Загрузка</MenuItem>;
-      if (error) return <MenuItem value="1">Ошибка</MenuItem>;
-      return heroes.map(({ id, localized_name, icon }) => (
-        <MenuItem value={id} key={id}>
-          <ListItemIcon>
-            <Avatar
-              alt={localized_name}
-              src={"https://api.opendota.com" + icon}
-            />
-          </ListItemIcon>
-          {localized_name}
-        </MenuItem>
-      ));
-    })(load, error, heroes);
+    const { sorted, heroes } = this.state;
+    const { updateCurrentHero } = this.props;
     return (
       <div>
-        <InputLabel htmlFor="selectHero">Выбор героя</InputLabel>
-        <StyledSelect
-          open={open}
-          onClose={this.handleCloseList}
-          onOpen={this.handleOpenList}
-          value={currentHero}
-          onChange={this.handleChangeSelect}
-          inputProps={{
-            name: "currentHero",
-            id: "selectHero"
-          }}
-        >
-          {content}
-        </StyledSelect>
+        <Sorted sorted={sorted} onChange={this.toggleSorted} />
+        <HeroesList updateCurrentHero={updateCurrentHero} heroes={heroes} />
       </div>
     );
   }
-
-  loadHeroes = () => {
-    axios
-      .get(BASE_URL + "heroStats")
-      .then(response => {
-        this.handleEndLoadHeroes(response);
+  sortedHeroesList = () => {
+    const { sorted } = this.state;
+    this.setState(prevState => ({
+      heroes: prevState.heroes.sort((first, second) => {
+        return sorted
+          ? first.localized_name.toLowerCase() >
+            second.localized_name.toLowerCase()
+            ? 1
+            : -1
+          : first.roles[0].toLowerCase() > second.roles[0].toLowerCase()
+          ? 1
+          : -1;
       })
-      .catch(() => {
-        this.handleErrorLoadHeroes();
-      });
+    }));
   };
-
-  handleEndLoadHeroes = response => {
-    this.setState({
-      heroes: response.data,
-      load: false
-    });
-  };
-
-  handleErrorLoadHeroes = response => {
-    this.setState({
-      load: false,
-      error: true
-    });
-  };
-
-  handleChangeSelect = event => {
-    const { value } = event.target;
-    this.props.updateCurrentHero(value);
-    this.setState({
-      currentHero: value
-    });
-  };
-
-  handleCloseList = () => {
-    this.setState({
-      open: false
-    });
-  };
-
-  handleOpenList = () => {
-    this.setState({
-      open: true
-    });
+  toggleSorted = () => {
+    this.setState(
+      prevState => ({
+        sorted: !prevState.sorted
+      }),
+      () => {
+        this.sortedHeroesList();
+      }
+    );
   };
 }
 
@@ -116,4 +59,6 @@ HeroesSelect.propTypes = {
   updateCurrentHero: PropTypes.func.isRequired
 };
 
-export default HeroesSelect;
+export default withAPIRequest(HeroesSelect, () => ({
+  url: "heroStats"
+}));
