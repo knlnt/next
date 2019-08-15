@@ -1035,7 +1035,16 @@ const HeroItem = ({
   name,
   icon,
   roles
-}) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["ListItemAvatar"], {
+}) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Grid"], {
+  container: true,
+  direction: "row",
+  alignItems: "center",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 5
+  },
+  __self: undefined
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["ListItemAvatar"], {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 6
@@ -1211,15 +1220,13 @@ HeroesList.propTypes = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "prop-types");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _SortSelection__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SortSelection */ "./src/components/RankManager/SortSelection.js");
-/* harmony import */ var _HeroesList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./HeroesList */ "./src/components/RankManager/HeroesList.js");
-/* harmony import */ var _WithAPIRequest_WithAPIRequest__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../WithAPIRequest/WithAPIRequest */ "./src/components/WithAPIRequest/WithAPIRequest.js");
-
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _SortSelection__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SortSelection */ "./src/components/RankManager/SortSelection.js");
+/* harmony import */ var _HeroesList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./HeroesList */ "./src/components/RankManager/HeroesList.js");
+/* harmony import */ var _WithAPIRequest_WithAPIRequest__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../WithAPIRequest/WithAPIRequest */ "./src/components/WithAPIRequest/WithAPIRequest.js");
 var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\RankManager\\HeroesSelect.js";
 
 
@@ -1228,79 +1235,54 @@ var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\compone
 
 
 
-class HeroesSelect extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
-  constructor(props) {
-    super(props);
+const HeroesSelect = ({
+  data,
+  updateCurrentHero
+}) => {
+  const [heroes, setHeroes] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(data);
+  const [sortByName, setSortByName] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    sortHeroesList();
+  }, [sortByName]);
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "sortHeroesList", () => {
-      const {
-        sortByName
-      } = this.state;
-      this.setState(prevState => ({
-        heroes: prevState.heroes.sort((first, second) => {
-          return sortByName ? first.localized_name.toLowerCase() > second.localized_name.toLowerCase() ? 1 : -1 : first.roles[0].toLowerCase() > second.roles[0].toLowerCase() ? 1 : -1;
-        })
-      }));
-    });
-
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "toggleSortType", () => {
-      this.setState(prevState => ({
-        sortByName: !prevState.sortByName
-      }), () => {
-        this.sortHeroesList();
-      });
-    });
-
-    this.state = {
-      heroes: props.data,
-      sortByName: true
-    };
-  }
-
-  componentDidMount() {
-    this.sortHeroesList();
-  }
-
-  render() {
-    const {
-      sortByName,
-      heroes
-    } = this.state;
-    const {
-      updateCurrentHero
-    } = this.props;
-    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 25
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_SortSelection__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      sortByName: sortByName,
-      onChange: this.toggleSortType,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 26
-      },
-      __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_HeroesList__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      updateCurrentHero: updateCurrentHero,
-      heroes: heroes,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 27
-      },
-      __self: this
+  const sortHeroesList = () => {
+    setHeroes(heroes.sort((first, second) => {
+      return sortByName ? first.localized_name.toLowerCase() > second.localized_name.toLowerCase() ? 1 : -1 : first.roles[0].toLowerCase() > second.roles[0].toLowerCase() ? 1 : -1;
     }));
-  }
+  };
 
-}
+  const toggleSortType = () => setSortByName(!sortByName);
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SortSelection__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    sortByName: sortByName,
+    onChange: toggleSortType,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34
+    },
+    __self: undefined
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HeroesList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    updateCurrentHero: updateCurrentHero,
+    heroes: heroes,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35
+    },
+    __self: undefined
+  }));
+};
 
 HeroesSelect.propTypes = {
-  updateCurrentHero: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func.isRequired,
-  data: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array.isRequired
+  updateCurrentHero: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
+  data: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.array.isRequired
 };
-/* harmony default export */ __webpack_exports__["default"] = (Object(_WithAPIRequest_WithAPIRequest__WEBPACK_IMPORTED_MODULE_5__["default"])(HeroesSelect, () => ({
+/* harmony default export */ __webpack_exports__["default"] = (Object(_WithAPIRequest_WithAPIRequest__WEBPACK_IMPORTED_MODULE_4__["default"])(HeroesSelect, () => ({
   url: "heroStats"
 })));
 
@@ -1382,38 +1364,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "prop-types");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\RankManager\\SortSelection.js";
 
 
 
 
+const StyledSpan = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.span.withConfig({
+  displayName: "SortSelection__StyledSpan",
+  componentId: "sc-1v27yhf-0"
+})(["margin:0 14px 0 0;"]);
+
 const SortSelection = ({
   sortByName,
   onChange
-}) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Typography"], {
+}) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 5
+    lineNumber: 10
   },
   __self: undefined
-}, "\u0421\u043E\u0442\u0440\u0438\u0440\u043E\u0432\u043A\u0430 \u043F\u043E", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["FormControlLabel"], {
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledSpan, {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 11
+  },
+  __self: undefined
+}, "\u0421\u043E\u0442\u0440\u0438\u0440\u043E\u0432\u043A\u0430 \u043F\u043E \u0438\u043C\u0435\u043D\u0438"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["FormControlLabel"], {
   value: "sortByName",
   onChange: onChange,
-  control: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Switch"], {
+  control: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Switch"], {
     color: "default",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 15
     },
     __self: undefined
   }),
-  label: sortByName ? "имени" : "типу",
-  labelPlacement: "start",
+  label: "\u0442\u0438\u043F\u0443",
+  labelPlacement: "end",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 7
+    lineNumber: 12
   },
   __self: undefined
 }));
@@ -1445,8 +1440,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _PlayerView_ViewList__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./PlayerView/ViewList */ "./src/components/Rankings/PlayerView/ViewList.js");
-/* harmony import */ var _PlayerView_ViewCard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./PlayerView/ViewCard */ "./src/components/Rankings/PlayerView/ViewCard.js");
+/* harmony import */ var _PlayerView_PlayerList__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./PlayerView/PlayerList */ "./src/components/Rankings/PlayerView/PlayerList.js");
+/* harmony import */ var _PlayerView_PlayerCard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./PlayerView/PlayerCard */ "./src/components/Rankings/PlayerView/PlayerCard.js");
 
 
 var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\Rankings\\Player.js";
@@ -1459,10 +1454,10 @@ var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\compone
 
 const Player = (_ref) => {
   let {
-    typeView,
+    isListView,
     id
   } = _ref,
-      props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref, ["typeView", "id"]);
+      props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref, ["isListView", "id"]);
 
   return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
     href: "/player?id=" + id,
@@ -1471,13 +1466,13 @@ const Player = (_ref) => {
       lineNumber: 9
     },
     __self: undefined
-  }, typeView ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["List"], {
+  }, isListView ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["List"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 11
     },
     __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_PlayerView_ViewList__WEBPACK_IMPORTED_MODULE_6__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_PlayerView_PlayerList__WEBPACK_IMPORTED_MODULE_6__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 12
@@ -1497,7 +1492,7 @@ const Player = (_ref) => {
       lineNumber: 16
     },
     __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_PlayerView_ViewCard__WEBPACK_IMPORTED_MODULE_7__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_PlayerView_PlayerCard__WEBPACK_IMPORTED_MODULE_7__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 17
@@ -1508,16 +1503,16 @@ const Player = (_ref) => {
 
 Player.propTypes = {
   id: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number.isRequired,
-  typeView: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool.isRequired
+  isListView: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (Player);
 
 /***/ }),
 
-/***/ "./src/components/Rankings/PlayerView/ViewCard.js":
-/*!********************************************************!*\
-  !*** ./src/components/Rankings/PlayerView/ViewCard.js ***!
-  \********************************************************/
+/***/ "./src/components/Rankings/PlayerView/PlayerCard.js":
+/*!**********************************************************!*\
+  !*** ./src/components/Rankings/PlayerView/PlayerCard.js ***!
+  \**********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1531,26 +1526,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__);
-var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\Rankings\\PlayerView\\ViewCard.js";
+var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\Rankings\\PlayerView\\PlayerCard.js";
 
 
 
 
-const StyledCardMedia = styled_components__WEBPACK_IMPORTED_MODULE_2___default()(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardMedia"])`
-  height: 200px;
-`;
+const StyledCardMedia = styled_components__WEBPACK_IMPORTED_MODULE_2___default()(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardMedia"]).withConfig({
+  displayName: "PlayerCard__StyledCardMedia",
+  componentId: "sc-1dzsalu-0"
+})(["height:200px;"]);
+const StyledParentCard = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div.withConfig({
+  displayName: "PlayerCard__StyledParentCard",
+  componentId: "sc-1dzsalu-1"
+})(["cursor:pointer;"]);
 
-const ViewCard = ({
+const PlayerCard = ({
   avatar,
   personaname,
   rank_tier,
   score
-}) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardHeader"], {
+}) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledParentCard, {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 19
+  },
+  __self: undefined
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardHeader"], {
   avatar: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Avatar"], {
     "aria-label": "recipe",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 21
     },
     __self: undefined
   }, personaname[0]),
@@ -1558,7 +1564,7 @@ const ViewCard = ({
   subheader: "Уровень ранга — " + rank_tier,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 18
+    lineNumber: 20
   },
   __self: undefined
 }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledCardMedia, {
@@ -1566,19 +1572,19 @@ const ViewCard = ({
   title: personaname,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 23
+    lineNumber: 25
   },
   __self: undefined
 }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardContent"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 24
+    lineNumber: 26
   },
   __self: undefined
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 25
+    lineNumber: 27
   },
   __self: undefined
 }, "Количество очков — " + score.toString().substring(0, 4)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
@@ -1587,28 +1593,28 @@ const ViewCard = ({
   component: "p",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 28
+    lineNumber: 32
   },
   __self: undefined
 }, "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.")));
 
-ViewCard.defaultProps = {
+PlayerCard.defaultProps = {
   rank_tier: "Не определен"
 };
-ViewCard.propTypes = {
+PlayerCard.propTypes = {
   avatar: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
   personaname: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
   rank_tier: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
   score: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number.isRequired
 };
-/* harmony default export */ __webpack_exports__["default"] = (ViewCard);
+/* harmony default export */ __webpack_exports__["default"] = (PlayerCard);
 
 /***/ }),
 
-/***/ "./src/components/Rankings/PlayerView/ViewList.js":
-/*!********************************************************!*\
-  !*** ./src/components/Rankings/PlayerView/ViewList.js ***!
-  \********************************************************/
+/***/ "./src/components/Rankings/PlayerView/PlayerList.js":
+/*!**********************************************************!*\
+  !*** ./src/components/Rankings/PlayerView/PlayerList.js ***!
+  \**********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1620,12 +1626,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\Rankings\\PlayerView\\ViewList.js";
+var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\Rankings\\PlayerView\\PlayerList.js";
 
 
 
 
-const ViewList = ({
+const PlayerList = ({
   avatar,
   personaname,
   rank_tier,
@@ -1675,16 +1681,16 @@ const ViewList = ({
   __self: undefined
 }));
 
-ViewList.defaultProps = {
+PlayerList.defaultProps = {
   rank_tier: "Не определен"
 };
-ViewList.propTypes = {
+PlayerList.propTypes = {
   avatar: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
   personaname: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
   rank_tier: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
   score: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number.isRequired
 };
-/* harmony default export */ __webpack_exports__["default"] = (ViewList);
+/* harmony default export */ __webpack_exports__["default"] = (PlayerList);
 
 /***/ }),
 
@@ -1728,12 +1734,12 @@ class RankList extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     super(...args);
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])(this, "state", {
-      viewTypeRankList: _constants__WEBPACK_IMPORTED_MODULE_9__["VIEW_TYPE_RANKINGS"].list
+      isListView: _constants__WEBPACK_IMPORTED_MODULE_9__["VIEW_TYPE_RANKINGS"].list
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])(this, "toggleViewRankList", () => {
       this.setState(prevState => ({
-        viewTypeRankList: !prevState.viewTypeRankList
+        isListView: !prevState.isListView
       }));
     });
   }
@@ -1743,10 +1749,9 @@ class RankList extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       rankings
     } = this.props.data;
     const {
-      viewTypeRankList
+      isListView
     } = this.state;
-
-    const content = (() => react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_3___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["Grid"], {
+    const content = react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_3___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["Grid"], {
       xs: 12,
       item: true,
       __source: {
@@ -1755,7 +1760,7 @@ class RankList extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_ToggleView__WEBPACK_IMPORTED_MODULE_8__["default"], {
-      view: viewTypeRankList,
+      view: isListView,
       onChange: this.toggleViewRankList,
       __source: {
         fileName: _jsxFileName,
@@ -1772,19 +1777,18 @@ class RankList extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         key: account_id,
         id: account_id
       }, props, {
-        typeView: viewTypeRankList,
+        isListView: isListView,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 25
         },
         __self: this
       }));
-    })))();
-
-    return viewTypeRankList ? react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["Paper"], {
+    }));
+    return isListView ? react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["Paper"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 35
       },
       __self: this
     }, content) : react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["Grid"], {
@@ -1792,7 +1796,7 @@ class RankList extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       spacing: 2,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
+        lineNumber: 37
       },
       __self: this
     }, content);
@@ -1804,9 +1808,7 @@ RankList.propTypes = {
   data: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.object.isRequired,
   id: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.number.isRequired
 };
-/* harmony default export */ __webpack_exports__["default"] = (Object(_WithAPIRequest_WithAPIRequest__WEBPACK_IMPORTED_MODULE_6__["default"])(RankList, ({
-  id
-}) => ({
+/* harmony default export */ __webpack_exports__["default"] = (Object(_WithAPIRequest_WithAPIRequest__WEBPACK_IMPORTED_MODULE_6__["default"])(RankList, id => ({
   url: "rankings?hero_id=" + id
 })));
 
@@ -1969,14 +1971,13 @@ ToggleView.propTypes = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/assign */ "./node_modules/@babel/runtime-corejs2/core-js/object/assign.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "axios");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _Loader_Loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Loader/Loader */ "./src/components/Loader/Loader.js");
-/* harmony import */ var _ErrorMessage_ErrorMessage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ErrorMessage/ErrorMessage */ "./src/components/ErrorMessage/ErrorMessage.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
+/* harmony import */ var _Loader_Loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Loader/Loader */ "./src/components/Loader/Loader.js");
+/* harmony import */ var _ErrorMessage_ErrorMessage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ErrorMessage/ErrorMessage */ "./src/components/ErrorMessage/ErrorMessage.js");
+/* harmony import */ var _useLoadData__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./useLoadData */ "./src/components/WithAPIRequest/useLoadData.js");
 
 
 var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\components\\WithAPIRequest\\WithAPIRequest.js";
@@ -1986,86 +1987,88 @@ var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\compone
 
 
 
-
 const withAPIRequest = (WrappedComponent, getApiEndpoint) => {
-  var _temp;
+  return (_ref) => {
+    let props = _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_1___default()({}, _ref);
 
-  return _temp = class extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
-    constructor(...args) {
-      super(...args);
+    const {
+      url
+    } = getApiEndpoint(props.id);
+    const [load, setLoad] = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(true);
+    const [error, setError] = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(false);
+    const [data, setData] = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]);
+    Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(() => {
+      loadData();
+    }, []);
 
-      Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "state", {
-        load: true,
-        error: false,
-        data: []
-      });
+    const handleEndLoad = newData => {
+      setData(newData);
+      setLoad(false);
+      setError(false);
+    };
 
-      Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "loadData", () => {
-        const {
-          url
-        } = getApiEndpoint(this.props);
-        axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(_constants__WEBPACK_IMPORTED_MODULE_6__["BASE_URL"] + url).then(response => {
-          this.handleEndLoad(response.data);
-        }).catch(() => {
-          this.handleErrorLoad();
-        });
-      });
+    const handleErrorLoad = () => {
+      setLoad(false);
+      setError(true);
+    };
 
-      Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "handleEndLoad", newData => {
-        this.setState({
-          load: false,
-          error: false,
-          data: newData
-        });
-      });
+    const loadData = () => Object(_useLoadData__WEBPACK_IMPORTED_MODULE_5__["default"])(url, handleEndLoad, handleErrorLoad);
 
-      Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "handleErrorLoad", () => {
-        this.setState({
-          load: false,
-          error: true
-        });
-      });
-    }
-
-    componentDidMount() {
-      this.loadData();
-    }
-
-    render() {
-      const {
-        load,
-        error,
-        data
-      } = this.state;
-      if (load) return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_Loader_Loader__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 20
-        },
-        __self: this
-      });
-      if (error) return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_ErrorMessage_ErrorMessage__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 21
-        },
-        __self: this
-      });
-      return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedComponent, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-        data: data
-      }, this.props, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 22
-        },
-        __self: this
-      }));
-    }
-
-  }, _temp;
+    if (load) return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_Loader_Loader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28
+      },
+      __self: undefined
+    });
+    if (error) return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_ErrorMessage_ErrorMessage__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29
+      },
+      __self: undefined
+    });
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedComponent, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      key: +load,
+      data: data
+    }, props, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30
+      },
+      __self: undefined
+    }));
+  };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (withAPIRequest);
+
+/***/ }),
+
+/***/ "./src/components/WithAPIRequest/useLoadData.js":
+/*!******************************************************!*\
+  !*** ./src/components/WithAPIRequest/useLoadData.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
+
+
+
+const useLoadData = (url, handleEndLoad, handleErrorLoad) => {
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(_constants__WEBPACK_IMPORTED_MODULE_1__["BASE_URL"] + url).then(response => {
+    handleEndLoad(response.data);
+  }).catch(() => {
+    handleErrorLoad();
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (useLoadData);
 
 /***/ }),
 

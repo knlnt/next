@@ -9,18 +9,15 @@ import { VIEW_TYPE_RANKINGS } from "../../constants";
 
 class RankList extends Component {
   state = {
-    viewTypeRankList: VIEW_TYPE_RANKINGS.list
+    isListView: VIEW_TYPE_RANKINGS.list
   };
   render() {
     const { rankings } = this.props.data;
-    const { viewTypeRankList } = this.state;
-    const content = (() => (
+    const { isListView } = this.state;
+    const content = (
       <>
         <Grid xs={12} item>
-          <ToggleView
-            view={viewTypeRankList}
-            onChange={this.toggleViewRankList}
-          />
+          <ToggleView view={isListView} onChange={this.toggleViewRankList} />
         </Grid>
 
         {rankings &&
@@ -29,12 +26,12 @@ class RankList extends Component {
               key={account_id}
               id={account_id}
               {...props}
-              typeView={viewTypeRankList}
+              isListView={isListView}
             />
           ))}
       </>
-    ))();
-    return viewTypeRankList ? (
+    );
+    return isListView ? (
       <Paper>{content}</Paper>
     ) : (
       <Grid container spacing={2}>
@@ -44,7 +41,7 @@ class RankList extends Component {
   }
   toggleViewRankList = () => {
     this.setState(prevState => ({
-      viewTypeRankList: !prevState.viewTypeRankList
+      isListView: !prevState.isListView
     }));
   };
 }
@@ -54,6 +51,6 @@ RankList.propTypes = {
   id: PropTypes.number.isRequired
 };
 
-export default withAPIRequest(RankList, ({ id }) => ({
+export default withAPIRequest(RankList, id => ({
   url: "rankings?hero_id=" + id
 }));

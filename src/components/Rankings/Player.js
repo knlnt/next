@@ -2,19 +2,19 @@ import PropTypes from "prop-types";
 import Link from "next/link";
 import { List, Card, Grid } from "@material-ui/core";
 
-import ViewList from "./PlayerView/ViewList";
-import ViewCard from "./PlayerView/ViewCard";
+import PlayerList from "./PlayerView/PlayerList";
+import PlayerCard from "./PlayerView/PlayerCard";
 
-const Player = ({ typeView, id, ...props }) => (
+const Player = ({ isListView, id, ...props }) => (
   <Link href={"/player?id=" + id}>
-    {typeView ? (
+    {isListView ? (
       <List>
-        <ViewList {...props} />
+        <PlayerList {...props} />
       </List>
     ) : (
       <Grid xs={3} item>
         <Card>
-          <ViewCard {...props} />
+          <PlayerCard {...props} />
         </Card>
       </Grid>
     )}
@@ -23,7 +23,7 @@ const Player = ({ typeView, id, ...props }) => (
 
 Player.propTypes = {
   id: PropTypes.number.isRequired,
-  typeView: PropTypes.bool.isRequired
+  isListView: PropTypes.bool.isRequired
 };
 
 export default Player;

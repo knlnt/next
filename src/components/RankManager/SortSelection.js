@@ -1,15 +1,20 @@
 import PropTypes from "prop-types";
+import styled from "styled-components";
 import { Typography, FormControlLabel, Switch } from "@material-ui/core";
+
+const StyledSpan = styled.span`
+  margin: 0 14px 0 0;
+`;
 
 const SortSelection = ({ sortByName, onChange }) => (
   <Typography>
-    Сотрировка по
+    <StyledSpan>Сотрировка по имени</StyledSpan>
     <FormControlLabel
       value="sortByName"
       onChange={onChange}
       control={<Switch color="default" />}
-      label={sortByName ? "имени" : "типу"}
-      labelPlacement="start"
+      label="типу"
+      labelPlacement="end"
     />
   </Typography>
 );

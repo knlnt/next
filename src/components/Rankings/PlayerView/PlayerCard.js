@@ -5,16 +5,18 @@ import {
   CardMedia,
   CardContent,
   Typography,
-  Avatar,
-  ListItem
+  Avatar
 } from "@material-ui/core";
 
 const StyledCardMedia = styled(CardMedia)`
   height: 200px;
 `;
+const StyledParentCard = styled.div`
+  cursor: pointer;
+`;
 
-const ViewCard = ({ avatar, personaname, rank_tier, score }) => (
-  <>
+const PlayerCard = ({ avatar, personaname, rank_tier, score }) => (
+  <StyledParentCard>
     <CardHeader
       avatar={<Avatar aria-label="recipe">{personaname[0]}</Avatar>}
       title={personaname}
@@ -25,24 +27,26 @@ const ViewCard = ({ avatar, personaname, rank_tier, score }) => (
       <Typography>
         {"Количество очков — " + score.toString().substring(0, 4)}
       </Typography>
+      {/* TODO
+      Временная заглушка, убрать когда API предоставит более полные данные */}
       <Typography variant="body2" color="textSecondary" component="p">
         This impressive paella is a perfect party dish and a fun meal to cook
         together with your guests. Add 1 cup of frozen peas along with the
         mussels, if you like.
       </Typography>
     </CardContent>
-  </>
+  </StyledParentCard>
 );
 
-ViewCard.defaultProps = {
+PlayerCard.defaultProps = {
   rank_tier: "Не определен"
 };
 
-ViewCard.propTypes = {
+PlayerCard.propTypes = {
   avatar: PropTypes.string.isRequired,
   personaname: PropTypes.string.isRequired,
   rank_tier: PropTypes.number,
   score: PropTypes.number.isRequired
 };
 
-export default ViewCard;
+export default PlayerCard;

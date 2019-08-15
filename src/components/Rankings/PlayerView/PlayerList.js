@@ -7,7 +7,7 @@ import {
   Typography
 } from "@material-ui/core";
 
-const ViewList = ({ avatar, personaname, rank_tier, score }) => (
+const PlayerList = ({ avatar, personaname, rank_tier, score }) => (
   <ListItem button>
     <ListItemAvatar>
       <Avatar src={avatar} />
@@ -27,15 +27,15 @@ const ViewList = ({ avatar, personaname, rank_tier, score }) => (
   </ListItem>
 );
 
-ViewList.defaultProps = {
+PlayerList.defaultProps = {
   rank_tier: "Не определен"
 };
 
-ViewList.propTypes = {
+PlayerList.propTypes = {
   avatar: PropTypes.string.isRequired,
   personaname: PropTypes.string.isRequired,
   rank_tier: PropTypes.number,
   score: PropTypes.number.isRequired
 };
 
-export default ViewList;
+export default PlayerList;

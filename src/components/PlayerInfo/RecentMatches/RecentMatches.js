@@ -23,6 +23,6 @@ RecentMatches.defaultProps = {
   id: PropTypes.string.isRequired
 };
 
-export default withAPIRequest(RecentMatches, ({ id }) => ({
+export default withAPIRequest(RecentMatches, id => ({
   url: "players/" + id + "/recentMatches"
 }));
