@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
-import { ListItemAvatar, Avatar, ListItemText } from "@material-ui/core";
+import { ListItemAvatar, Avatar, ListItemText, Grid } from "@material-ui/core";
 
 const HeroItem = ({ name, icon, roles }) => (
-  <>
+  <Grid container direction="row" alignItems="center">
     <ListItemAvatar>
       <Avatar alt={name} src={"https://api.opendota.com" + icon} />
     </ListItemAvatar>
     <ListItemText primary={name} secondary={roles[0]} />
-  </>
+  </Grid>
 );
 
 HeroItem.propTypes = {

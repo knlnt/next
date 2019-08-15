@@ -40,10 +40,13 @@ PlayerHeader.defaultProps = {
       personaname: "Имя",
       profileurl: "https://steamcommunity.com/"
     }
-  },
+  }
+};
+
+PlayerHeader.propTypes = {
   id: PropTypes.string.isRequired
 };
 
-export default withAPIRequest(PlayerHeader, ({ id }) => ({
+export default withAPIRequest(PlayerHeader, id => ({
   url: "players/" + id
 }));

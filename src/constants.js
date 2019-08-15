@@ -90,3 +90,6 @@ export const BAR_CHART_SETTINGS = {
   motionStiffness: 90,
   motionDamping: 15
 };
+export const VIEW_TYPE_RANKINGS = {
+  list: true
+};

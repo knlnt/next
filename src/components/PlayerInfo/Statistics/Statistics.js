@@ -35,7 +35,7 @@ Statistics.defaultProps = {
   id: PropTypes.string.isRequired
 };
 
-export default withAPIRequest(Statistics, ({ id }) => ({
+export default withAPIRequest(Statistics, id => ({
   url: "players/" + id + "/totals"
 }));
 

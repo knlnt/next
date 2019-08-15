@@ -11,19 +11,16 @@ const StyledSelect = styled(Select)`
 `;
 
 class HeroesList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentHero: DEFAULT_ID_HERO,
-      open: false,
-      heroes: props.heroes
-    };
-  }
+  state = {
+    currentHero: DEFAULT_ID_HERO,
+    open: false
+  };
 
   render() {
-    const { open, currentHero, heroes } = this.state;
+    const { open, currentHero } = this.state;
+    const { heroes } = this.props;
     return (
-      <div>
+      <>
         <InputLabel htmlFor="selectHero">Выбор героя</InputLabel>
         <StyledSelect
           open={open}
@@ -42,7 +39,7 @@ class HeroesList extends Component {
             </MenuItem>
           ))}
         </StyledSelect>
-      </div>
+      </>
     );
   }
 

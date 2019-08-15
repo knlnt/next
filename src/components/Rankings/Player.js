@@ -1,44 +1,29 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
-import {
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  Avatar,
-  Typography
-} from "@material-ui/core";
+import { List, Card, Grid } from "@material-ui/core";
 
-const Player = ({ id, avatar, personaname, rank_tier, score }) => (
+import PlayerList from "./PlayerView/PlayerList";
+import PlayerCard from "./PlayerView/PlayerCard";
+
+const Player = ({ isListView, id, ...props }) => (
   <Link href={"/player?id=" + id}>
-    <ListItem button>
-      <ListItemAvatar>
-        <Avatar src={avatar} />
-      </ListItemAvatar>
-      <ListItemText
-        primary={personaname}
-        secondary={
-          <>
-            <Typography component="span" variant="body2" color="textPrimary">
-              Уровень ранга — {rank_tier}
-              <br />
-            </Typography>
-            Количество очков — {score}
-          </>
-        }
-      />
-    </ListItem>
+    {isListView ? (
+      <List>
+        <PlayerList {...props} />
+      </List>
+    ) : (
+      <Grid xs={3} item>
+        <Card>
+          <PlayerCard {...props} />
+        </Card>
+      </Grid>
+    )}
   </Link>
 );
 
 Player.propTypes = {
   id: PropTypes.number.isRequired,
-  avatar: PropTypes.string.isRequired,
-  personaname: PropTypes.string.isRequired,
-  rank_tier: PropTypes.number,
-  score: PropTypes.number.isRequired
-};
-Player.defaultProps = {
-  rank_tier: "Не определен"
+  isListView: PropTypes.bool.isRequired
 };
 
 export default Player;
