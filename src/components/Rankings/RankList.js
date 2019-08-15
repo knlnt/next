@@ -17,7 +17,10 @@ class RankList extends Component {
     const content = (
       <>
         <Grid xs={12} item>
-          <ToggleView view={isListView} onChange={this.toggleViewRankList} />
+          <ToggleView
+            isListView={isListView}
+            onChange={this.toggleViewRankList}
+          />
         </Grid>
 
         {rankings &&

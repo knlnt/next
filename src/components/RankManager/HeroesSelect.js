@@ -6,7 +6,6 @@ import HeroesList from "./HeroesList";
 import withAPIRequest from "../WithAPIRequest/WithAPIRequest";
 
 const HeroesSelect = ({ data, updateCurrentHero }) => {
-  const [heroes, setHeroes] = useState(data);
   const [sortByName, setSortByName] = useState(true);
 
   useEffect(() => {
@@ -14,25 +13,23 @@ const HeroesSelect = ({ data, updateCurrentHero }) => {
   }, [sortByName]);
 
   const sortHeroesList = () => {
-    setHeroes(
-      heroes.sort((first, second) => {
-        return sortByName
-          ? first.localized_name.toLowerCase() >
-            second.localized_name.toLowerCase()
-            ? 1
-            : -1
-          : first.roles[0].toLowerCase() > second.roles[0].toLowerCase()
+    data.sort((first, second) => {
+      return sortByName
+        ? first.localized_name.toLowerCase() >
+          second.localized_name.toLowerCase()
           ? 1
-          : -1;
-      })
-    );
+          : -1
+        : first.roles[0].toLowerCase() > second.roles[0].toLowerCase()
+        ? 1
+        : -1;
+    });
   };
   const toggleSortType = () => setSortByName(!sortByName);
 
   return (
     <div>
       <SortSelection sortByName={sortByName} onChange={toggleSortType} />
-      <HeroesList updateCurrentHero={updateCurrentHero} heroes={heroes} />
+      <HeroesList updateCurrentHero={updateCurrentHero} heroes={data} />
     </div>
   );
 };

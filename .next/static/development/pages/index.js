@@ -63630,24 +63630,19 @@ var HeroesSelect = function HeroesSelect(_ref) {
   var data = _ref.data,
       updateCurrentHero = _ref.updateCurrentHero;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(data),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(true),
       _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
-      heroes = _useState2[0],
-      setHeroes = _useState2[1];
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(true),
-      _useState4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState3, 2),
-      sortByName = _useState4[0],
-      setSortByName = _useState4[1];
+      sortByName = _useState2[0],
+      setSortByName = _useState2[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     sortHeroesList();
   }, [sortByName]);
 
   var sortHeroesList = function sortHeroesList() {
-    setHeroes(heroes.sort(function (first, second) {
+    data.sort(function (first, second) {
       return sortByName ? first.localized_name.toLowerCase() > second.localized_name.toLowerCase() ? 1 : -1 : first.roles[0].toLowerCase() > second.roles[0].toLowerCase() ? 1 : -1;
-    }));
+    });
   };
 
   var toggleSortType = function toggleSortType() {
@@ -63657,7 +63652,7 @@ var HeroesSelect = function HeroesSelect(_ref) {
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 30
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_SortSelection__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -63665,15 +63660,15 @@ var HeroesSelect = function HeroesSelect(_ref) {
     onChange: toggleSortType,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 31
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_HeroesList__WEBPACK_IMPORTED_MODULE_4__["default"], {
     updateCurrentHero: updateCurrentHero,
-    heroes: heroes,
+    heroes: data,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 32
     },
     __self: this
   }));
@@ -64184,7 +64179,7 @@ function (_Component) {
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_ToggleView__WEBPACK_IMPORTED_MODULE_14__["default"], {
-        view: isListView,
+        isListView: isListView,
         onChange: this.toggleViewRankList,
         __source: {
           fileName: _jsxFileName,
@@ -64202,7 +64197,7 @@ function (_Component) {
           isListView: isListView,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 25
+            lineNumber: 28
           },
           __self: this
         }));
@@ -64210,7 +64205,7 @@ function (_Component) {
       return isListView ? react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__["Paper"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 38
         },
         __self: this
       }, content) : react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__["Grid"], {
@@ -64218,7 +64213,7 @@ function (_Component) {
         spacing: 2,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 40
         },
         __self: this
       }, content);
@@ -64367,9 +64362,9 @@ var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\compone
 
 var ToggleView = function ToggleView(_ref) {
   var onChange = _ref.onChange,
-      view = _ref.view;
+      isListView = _ref.isListView;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_lab__WEBPACK_IMPORTED_MODULE_2__["ToggleButtonGroup"], {
-    value: view,
+    value: isListView,
     exclusive: true,
     onChange: onChange,
     __source: {
@@ -64410,7 +64405,7 @@ var ToggleView = function ToggleView(_ref) {
 
 ToggleView.propTypes = {
   onChange: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
-  view: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool.isRequired
+  isListView: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (ToggleView);
 
@@ -64463,10 +64458,6 @@ var withAPIRequest = function withAPIRequest(WrappedComponent, getApiEndpoint) {
         data = _useState6[0],
         setData = _useState6[1];
 
-    Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
-      loadData();
-    }, []);
-
     var handleEndLoad = function handleEndLoad(newData) {
       setData(newData);
       setLoad(false);
@@ -64478,21 +64469,18 @@ var withAPIRequest = function withAPIRequest(WrappedComponent, getApiEndpoint) {
       setError(true);
     };
 
-    var loadData = function loadData() {
-      return Object(_useLoadData__WEBPACK_IMPORTED_MODULE_5__["default"])(url, handleEndLoad, handleErrorLoad);
-    };
-
+    Object(_useLoadData__WEBPACK_IMPORTED_MODULE_5__["default"])(url, handleEndLoad, handleErrorLoad);
     if (load) return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_Loader_Loader__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 24
       },
       __self: this
     });
     if (error) return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_ErrorMessage_ErrorMessage__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 25
       },
       __self: this
     });
@@ -64502,7 +64490,7 @@ var withAPIRequest = function withAPIRequest(WrappedComponent, getApiEndpoint) {
     }, props, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 26
       },
       __self: this
     }));
@@ -64522,18 +64510,23 @@ var withAPIRequest = function withAPIRequest(WrappedComponent, getApiEndpoint) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
+
 
 
 
 var useLoadData = function useLoadData(url, handleEndLoad, handleErrorLoad) {
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(_constants__WEBPACK_IMPORTED_MODULE_1__["BASE_URL"] + url).then(function (response) {
-    handleEndLoad(response.data);
-  })["catch"](function () {
-    handleErrorLoad();
-  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(_constants__WEBPACK_IMPORTED_MODULE_2__["BASE_URL"] + url).then(function (response) {
+      handleEndLoad(response.data);
+    })["catch"](function () {
+      handleErrorLoad();
+    });
+  }, []);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (useLoadData);
@@ -64655,7 +64648,7 @@ var VIEW_TYPE_RANKINGS = {
 
 /***/ }),
 
-/***/ 0:
+/***/ 2:
 /*!**************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=D%3A%5C%D0%90%D1%81%D1%82%D1%80%D0%B0%D0%BB%5Cnext%5Cpages%5Cindex.js ***!
   \**************************************************************************************************************************************/
@@ -64678,5 +64671,5 @@ module.exports = dll_829b10deddf10e1653a8;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

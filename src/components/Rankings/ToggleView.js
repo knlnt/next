@@ -4,8 +4,8 @@ import { Icon } from "@material-ui/core";
 
 import { VIEW_TYPE_RANKINGS } from "../../constants";
 
-const ToggleView = ({ onChange, view }) => (
-  <ToggleButtonGroup value={view} exclusive onChange={onChange}>
+const ToggleView = ({ onChange, isListView }) => (
+  <ToggleButtonGroup value={isListView} exclusive onChange={onChange}>
     <ToggleButton
       value={VIEW_TYPE_RANKINGS.list}
       title="Показать в виде списка"
@@ -23,7 +23,7 @@ const ToggleView = ({ onChange, view }) => (
 
 ToggleView.propTypes = {
   onChange: PropTypes.func.isRequired,
-  view: PropTypes.bool.isRequired
+  isListView: PropTypes.bool.isRequired
 };
 
 export default ToggleView;

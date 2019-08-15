@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
@@ -11,10 +11,6 @@ const withAPIRequest = (WrappedComponent, getApiEndpoint) => {
     const [error, setError] = useState(false);
     const [data, setData] = useState([]);
 
-    useEffect(() => {
-      loadData();
-    }, []);
-
     const handleEndLoad = newData => {
       setData(newData);
       setLoad(false);
@@ -24,7 +20,7 @@ const withAPIRequest = (WrappedComponent, getApiEndpoint) => {
       setLoad(false);
       setError(true);
     };
-    const loadData = () => useLoadData(url, handleEndLoad, handleErrorLoad);
+    useLoadData(url, handleEndLoad, handleErrorLoad);
     if (load) return <Loader />;
     if (error) return <ErrorMessage />;
     return <WrappedComponent key={+load} data={data} {...props} />;

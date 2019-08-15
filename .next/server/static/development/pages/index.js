@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1239,16 +1239,15 @@ const HeroesSelect = ({
   data,
   updateCurrentHero
 }) => {
-  const [heroes, setHeroes] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(data);
   const [sortByName, setSortByName] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     sortHeroesList();
   }, [sortByName]);
 
   const sortHeroesList = () => {
-    setHeroes(heroes.sort((first, second) => {
+    data.sort((first, second) => {
       return sortByName ? first.localized_name.toLowerCase() > second.localized_name.toLowerCase() ? 1 : -1 : first.roles[0].toLowerCase() > second.roles[0].toLowerCase() ? 1 : -1;
-    }));
+    });
   };
 
   const toggleSortType = () => setSortByName(!sortByName);
@@ -1256,7 +1255,7 @@ const HeroesSelect = ({
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 30
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SortSelection__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -1264,15 +1263,15 @@ const HeroesSelect = ({
     onChange: toggleSortType,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 31
     },
     __self: undefined
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HeroesList__WEBPACK_IMPORTED_MODULE_3__["default"], {
     updateCurrentHero: updateCurrentHero,
-    heroes: heroes,
+    heroes: data,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 32
     },
     __self: undefined
   }));
@@ -1760,7 +1759,7 @@ class RankList extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_ToggleView__WEBPACK_IMPORTED_MODULE_8__["default"], {
-      view: isListView,
+      isListView: isListView,
       onChange: this.toggleViewRankList,
       __source: {
         fileName: _jsxFileName,
@@ -1780,7 +1779,7 @@ class RankList extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         isListView: isListView,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 28
         },
         __self: this
       }));
@@ -1788,7 +1787,7 @@ class RankList extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     return isListView ? react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["Paper"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 38
       },
       __self: this
     }, content) : react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["Grid"], {
@@ -1796,7 +1795,7 @@ class RankList extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       spacing: 2,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 37
+        lineNumber: 40
       },
       __self: this
     }, content);
@@ -1913,9 +1912,9 @@ var _jsxFileName = "D:\\\u0410\u0441\u0442\u0440\u0430\u043B\\next\\src\\compone
 
 const ToggleView = ({
   onChange,
-  view
+  isListView
 }) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_lab__WEBPACK_IMPORTED_MODULE_2__["ToggleButtonGroup"], {
-  value: view,
+  value: isListView,
   exclusive: true,
   onChange: onChange,
   __source: {
@@ -1955,7 +1954,7 @@ const ToggleView = ({
 
 ToggleView.propTypes = {
   onChange: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
-  view: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool.isRequired
+  isListView: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (ToggleView);
 
@@ -1997,9 +1996,6 @@ const withAPIRequest = (WrappedComponent, getApiEndpoint) => {
     const [load, setLoad] = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(true);
     const [error, setError] = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(false);
     const [data, setData] = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]);
-    Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(() => {
-      loadData();
-    }, []);
 
     const handleEndLoad = newData => {
       setData(newData);
@@ -2012,19 +2008,18 @@ const withAPIRequest = (WrappedComponent, getApiEndpoint) => {
       setError(true);
     };
 
-    const loadData = () => Object(_useLoadData__WEBPACK_IMPORTED_MODULE_5__["default"])(url, handleEndLoad, handleErrorLoad);
-
+    Object(_useLoadData__WEBPACK_IMPORTED_MODULE_5__["default"])(url, handleEndLoad, handleErrorLoad);
     if (load) return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_Loader_Loader__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 24
       },
       __self: undefined
     });
     if (error) return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_ErrorMessage_ErrorMessage__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 25
       },
       __self: undefined
     });
@@ -2034,7 +2029,7 @@ const withAPIRequest = (WrappedComponent, getApiEndpoint) => {
     }, props, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 26
       },
       __self: undefined
     }));
@@ -2054,18 +2049,23 @@ const withAPIRequest = (WrappedComponent, getApiEndpoint) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "axios");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
+
 
 
 
 const useLoadData = (url, handleEndLoad, handleErrorLoad) => {
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(_constants__WEBPACK_IMPORTED_MODULE_1__["BASE_URL"] + url).then(response => {
-    handleEndLoad(response.data);
-  }).catch(() => {
-    handleErrorLoad();
-  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(_constants__WEBPACK_IMPORTED_MODULE_2__["BASE_URL"] + url).then(response => {
+      handleEndLoad(response.data);
+    }).catch(() => {
+      handleErrorLoad();
+    });
+  }, []);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (useLoadData);
@@ -2185,7 +2185,7 @@ const VIEW_TYPE_RANKINGS = {
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
